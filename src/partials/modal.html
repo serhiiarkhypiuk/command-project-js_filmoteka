@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="/src/sass/modal.scss">
+</head>
+<body>
+    <!-- <button class="modal__btn-close modal__btn">Close</button> -->
+    <button class="modal__btn-open modal__btn" data-path="modal-card">Open</button>
+
+    <div class="modal__card">
+        <div class="modal__card-overlay">
+            <div class="modal__card-content" data-target="modal-card">
+                <svg class="modal__close"><use href="/src/img/symbol-defs.svg#close"></use></svg>
+                <img src="../img/modal/exempel.jpg" alt="" class="modal__img">
+                <h2 class="modal__card-title">modal</h2>
+                <p class="modal__card-text">dasdasds</p>
+            </div>
+        </div>
+    </div>
+
+<script src="/src/js/modal.js" type="module"></script>
+</body>
+
+</html>
+
+
+
