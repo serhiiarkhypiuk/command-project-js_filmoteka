@@ -1,0 +1,25 @@
+.movie-list-section{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    @include tab {
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+}
+
+.test{
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+}
+.movie-collection{
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+}

@@ -5,14 +5,16 @@
         margin: 0 auto;
     
         @include tel {
-            max-width: 479px;
+            max-width: 320px;
         }
     
         @include tab {
-            max-width: 767px;
+            max-width: 768px;
+            padding-left: 32px;
+            padding-right: 32px;
         }
     
         @include desk {
-            max-width: 1279px;
+            max-width: 1280px;
         }
 }
