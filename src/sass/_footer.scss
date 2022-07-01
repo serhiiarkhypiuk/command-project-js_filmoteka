@@ -12,7 +12,10 @@
 }
 
 .footer__footer-text:first-child {
-  margin-bottom: 10px;
+  @include pre-tel {
+      margin-bottom: 10px;
+    }
+ 
 }
 
 .footer-container {
