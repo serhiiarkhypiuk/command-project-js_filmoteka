@@ -1,3 +1,24 @@
+.movies__item {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+// задать ширину, высоту
+.movie__text-part {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eeeeee;
+}
+
+.portfolio-short {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eeeeee;
+  padding-left: 24px;
+}
+
 .movie__title {
   font-family: Roboto;
   font-weight: 500;
