@@ -1,0 +1,25 @@
+.movie__title {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  color: #000000;
+  @include desk {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.movie__genre .stick .movie__year {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  color: #ff6b08;
+  @include desk {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
