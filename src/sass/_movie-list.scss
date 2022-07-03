@@ -9,14 +9,13 @@
     }
 }
 
-.test{
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: aqua;
-}
 .movie-collection{
-    display: flex;
+    
+    @include tab{
+        display: flex;
         flex-wrap: wrap;
         justify-content: start;
+        margin: -16px;
+    }
+        
 }
