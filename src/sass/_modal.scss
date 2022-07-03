@@ -1,0 +1,223 @@
+.modal__open {
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+.modal__card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.modal__card-content--active {
+    display: block;
+}
+
+.modal__card-overlay--active {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease-in-out;
+}
+
+.modal__card--active {
+    display: block;
+}
+
+.modal__card-content {
+
+    @media screen and(max-width:767px) {
+        width: 240px;
+        height: 100%;
+        padding: 20px;
+        position: relative;
+        background-color: white;
+        border-radius: 5px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    @media screen and(min-width: 768px) and (max-width: 1023px) {
+        display: flex;
+        width: 592px;
+        height: 472px;
+        padding: 40px 72px 40px 36px;
+        position: relative;
+        background-color: white;
+        border-radius: 5px;
+
+
+    }
+
+    @media screen and(min-width:1024px) {
+        display: flex;
+        width: 782px;
+        height: 478px;
+        padding: 40px 12px;
+        position: relative;
+        background-color: white;
+        border-radius: 5px;
+
+
+    }
+}
+
+.modal__close {
+    @media screen and(max-width:767px) {
+        position: relative;
+        top: 0;
+        left: 95%;
+        width: 14px;
+        height: 14px;
+        padding: 8px 8px 0px 0px;
+        cursor: pointer;
+
+        &:hover {
+            fill: skyblue;
+        }
+
+    }
+
+    @media screen and(min-width: 768px) and (max-width: 1023px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        padding: 8px 8px 0px 0px;
+        cursor: pointer;
+
+        &:hover {
+            fill: skyblue;
+        }
+    }
+
+    @media screen and(min-width:1024px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        padding: 8px 8px 0px 0px;
+        cursor: pointer;
+
+        &:hover {
+            fill: skyblue;
+        }
+    }
+}
+
+.modal__img {
+
+    @media screen and(min-width: 768px) and (max-width: 1023px) {
+        width: 264px;
+        height: 374px;
+        margin-right: 68px;
+    }
+
+    @media screen and(min-width:1024px) {
+        width: 375px;
+        height: 478px;
+        margin-right: 16px;
+
+    }
+
+}
+
+.modal__info {
+    @media screen and(max-width:767px) {
+        width: 240px;
+    }
+
+    @media screen and(min-width: 768px) and (max-width: 1023px) {
+        width: 264px;
+    }
+
+    @media screen and(min-width:1024px) {
+        width: 391px;
+    }
+}
+
+.discription__modal {
+    list-style: none;
+    padding: 0;
+
+    &>*:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    &>*:last-child {
+        margin-bottom: 20px;
+    }
+
+}
+
+.modal__info-title {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+
+}
+
+.discription__modal-item {
+    display: flex;
+    align-items: center;
+
+}
+
+.discription__modal-title {
+    white-space: nowrap;
+    width: 67px;
+    margin: 0 40px 0 0;
+}
+
+.discription__modal-text {
+    white-space: nowrap;
+    max-width: 107px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.about__modal-title {
+    margin: 0 0 8px 0;
+}
+
+.about__modal-text {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0 0 20px 0;
+
+}
+
+.modal__button {
+    display: flex;
+    justify-content: flex-start;
+
+    @media screen and(max-width:767px) {
+        justify-content: space-between;
+        margin: 0 0 40px 0;
+    }
+
+}
+
+.modal__btn-add {
+    padding: 13px 10px;
+    margin-right: 15px;
+
+    @media screen and(max-width:767px) {
+        margin-right: 0;
+    }
+}
