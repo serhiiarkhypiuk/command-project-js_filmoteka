@@ -33,20 +33,24 @@
 }
 
 .navigation__container {
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 37px;
+  max-width: 320px;
 
   @media screen and (max-width: 767px) {
     margin-bottom: 45px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
+    max-width: 768px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 0;
+    max-width: 1280px;
   }
 }
 
