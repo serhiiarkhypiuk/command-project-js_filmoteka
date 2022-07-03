@@ -53,6 +53,8 @@
 .logo {
   display: flex;
   align-self: flex-end;
+  text-decoration: none;
+  font-style: none;
 
   @media screen and (max-width: 767px) {
     margin-right: 112px;
@@ -105,6 +107,8 @@
   font-size: 12px;
   line-height: 1.16;
   color: $white-text-color;
+  text-decoration: none;
+  font-style: none;
 }
 
 .menu__link.current::after {
@@ -176,13 +180,8 @@
 .search__button-icon {
   position: absolute;
   right: 0;
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   bottom: 2px;
   stroke: $white-text-color;
-
-  @media screen and (min-width: 1280px) {
-    width: 12px;
-    height: 12px;
-  }
 }
