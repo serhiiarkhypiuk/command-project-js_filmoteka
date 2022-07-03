@@ -3,20 +3,29 @@
   display: flex;
   flex-direction: column;
 }
-// задать ширину, высоту
-.movie__text-part {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #eeeeee;
+
+.movie__image {
+  height: 398px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 574px;
+  }
 }
 
-.portfolio-short {
-  padding-top: 20px;
+.movie__text-part {
+  padding-top: 10px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #eeeeee;
-  padding-left: 24px;
+  text-decoration: none;
+  //   border: 1px solid #eeeeee;
 }
 
 .movie__title {
@@ -25,21 +34,23 @@
   font-size: 12px;
   line-height: 1.33;
   text-align: left;
+  text-decoration: none;
   color: #000000;
-  @include desk {
+  @media screen and (min-width: 1200px) {
     font-size: 20px;
     line-height: 1.2;
   }
 }
 
-.movie__genre .stick .movie__year {
+.movie__genre {
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-align: left;
+  text-decoration: none;
   color: #ff6b08;
-  @include desk {
+  @media screen and (min-width: 1200px) {
     font-size: 20px;
     line-height: 1.2;
   }
