@@ -1,10 +1,10 @@
-.modal__open {
-    border: none;
-    cursor: pointer;
-    background-color: black;
-    padding: 10px;
-    color: white;
-}
+// .modal__open {
+//     border: none;
+//     cursor: pointer;
+//     background-color: black;
+//     padding: 10px;
+//     color: white;
+// }
 
 .modal__card-overlay {
     position: fixed;
@@ -21,12 +21,17 @@
     height: 100%;
     opacity: 0;
     visibility: hidden;
+    padding: 20px 0 40px 0;
+    @include tab{
+            padding: 0;
+        }
+    @include desk{
+            padding: 0;
+        }
+    
 
 }
 
-.modal__card-content--active {
-    display: block;
-}
 
 .modal__card-overlay--active {
     opacity: 1;
@@ -39,22 +44,20 @@
 }
 
 .modal__card-content {
-
-    @media screen and(max-width:767px) {
-        width: 240px;
+        width: 280px;
         height: 100%;
-        padding: 20px;
+        padding: 48px 20px 20px 20px;
         position: relative;
         background-color: white;
         border-radius: 5px;
         overflow-x: hidden;
         overflow-y: auto;
-    }
 
-    @media screen and(min-width: 768px) and (max-width: 1023px) {
+
+    @include tab {
         display: flex;
-        width: 592px;
-        height: 472px;
+        width: 704px;
+        height: 552px;
         padding: 40px 72px 40px 36px;
         position: relative;
         background-color: white;
@@ -63,10 +66,10 @@
 
     }
 
-    @media screen and(min-width:1024px) {
+    @include desk {
         display: flex;
-        width: 782px;
-        height: 478px;
+        width: 806px;
+        height: 558px;
         padding: 40px 12px;
         position: relative;
         background-color: white;
@@ -77,80 +80,70 @@
 }
 
 .modal__close {
-    @media screen and(max-width:767px) {
-        position: relative;
-        top: 0;
-        left: 95%;
-        width: 14px;
-        height: 14px;
-        padding: 8px;
-        cursor: pointer;
-
-        &:hover {
-            fill: skyblue;
-        }
-
-    }
-
-    @media screen and(min-width: 768px) and (max-width: 1023px) {
         position: absolute;
         top: 0;
-        right: 0;
+        left: 90%;
+        margin: 8px;
         width: 14px;
         height: 14px;
-        padding: 8px 8px 0px 0px;
         cursor: pointer;
+        
+            &:hover {
+                fill: skyblue;
+            }
 
-        &:hover {
-            fill: skyblue;
-        }
+ 
+
+        @include tab {
+        position: absolute;
+        left: 96%;
+        
+      
+       
     }
 
-    @media screen and(min-width:1024px) {
+    @include desk {
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 14px;
-        height: 14px;
-        padding: 8px 8px 0px 0px;
-        cursor: pointer;
+                left: 96%;
+        
+    
 
-        &:hover {
-            fill: skyblue;
-        }
+      
     }
 }
 
 .modal__img {
-    @media screen and(max-width:767px){
-        margin-bottom: 20px;
-    }
+    display: block;
+    margin-bottom: 20px;
 
-    @media screen and(min-width: 768px) and (max-width: 1023px) {
+    
+
+    @include tab {
         width: 264px;
         height: 374px;
         margin-right: 68px;
+        margin-bottom: 0;
     }
 
-    @media screen and(min-width:1024px) {
+    @include desk {
         width: 375px;
         height: 478px;
         margin-right: 16px;
+        margin-bottom: 0;
 
     }
 
 }
 
 .modal__info {
-    @media screen and(max-width:767px) {
-        width: 240px;
-    }
+    width: 240px;
 
-    @media screen and(min-width: 768px) and (max-width: 1023px) {
+
+    @include tab {
         width: 264px;
     }
 
-    @media screen and(min-width:1024px) {
+   @include desk {
         width: 391px;
     }
 }
@@ -170,11 +163,12 @@
 }
 
 .modal__info-title {
-    font-family: 'Roboto';
+    font-family: $font-family;
     font-weight: 500;
-    font-size: 12px;
-    line-height:166%;
+    font-size: 20px;
+    line-height:115%;
     margin: 0 0 20px 0;
+    color: #000000;
   
 
 }
@@ -189,42 +183,107 @@
     white-space: nowrap;
     width: 67px;
     margin: 0 40px 0 0;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    line-height: $line-height;
+    color: #8C8C8C;
+    
 }
 
 .discription__modal-text {
     white-space: nowrap;
     max-width: 107px;
     margin: 0;
-    font-size: 12px;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: 116%;
+    font-weight: $font-weight;
+    color: $black-color;
+    
+    
+}
+.discription__modal-text span{
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: 116%;
+    color:$white-text-color;
+    font-family: $font-family;
+    font-style: $font-style;
+    padding: 1px 9px;
+    background-color: #FF6B01;
+    border-radius: 5px;
+
+    
+
 }
 
 .about__modal-title {
     margin: 0 0 8px 0;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    line-height: $line-height;
+    color:$black-color;
 }
 
 .about__modal-text {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: $font-size;
+    line-height: 166%;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    color: $black-color;
     margin: 0 0 20px 0;
 
 }
 
 .modal__button {
     display: flex;
-    justify-content: flex-start;
-
-    @media screen and(max-width:767px) {
-        justify-content: space-between;
-        margin: 0 0 40px 0;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    @include tab {
+       
+            justify-content: flex-start;
+           
     }
+    @include desk{
+    
+            justify-content: flex-start;
+    }
+    
 
 }
 
 .modal__btn-add {
     padding: 13px 10px;
-    margin-right: 15px;
-
-    @media screen and(max-width:767px) {
-        margin-right: 0;
+    display: inline-block;
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    color: $black-color;
+    line-height: $line-height;
+    text-align: center;
+    padding: 13px;
+    border: 1px solid $black-color;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+        background-color: #fde7d7;
+        
+    }
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+   
+     @include tab{
+        &:not(:last-child) {
+                margin-right: 15px;
+            }
+       
+        padding: 13px 7px;
+        
     }
 }

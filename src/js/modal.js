@@ -4,26 +4,24 @@ const modalOverlay = document.querySelector('.modal__card-overlay');
 const modalCard = document.querySelector('.modal__card');
 const closeBtn = document.querySelector('.modal__close');
 
-openModal();
+      
 
+btns.addEventListener('click', showModal);
+function showModal() {
 
-
-
-
-function openModal() {
-       
-    btns.addEventListener('click', showModal);
-        function showModal(e) {
-        e.preventDefault();
-        let path = e.currentTarget.getAttribute('data-path');
-        modalCard.classList.remove('modal__card--active');
-        document.querySelector(`[data-target="${path}"]`).classList.add('modal__card--active');
         modalOverlay.classList.add('modal__card-overlay--active');
+        modalCard.classList.add('modal__card--active');
         closeBtn.addEventListener('click', closeByBtn);
         modalOverlay.addEventListener('click', closeByOverlay);
         window.addEventListener('keydown', closeByWindow);
     };
-       
+           
+        // let path = e.currentTarget.getAttribute('data-path');
+        // modalCard.classList.remove('modal__card--active');
+        // document.querySelector(`[data-target="${path}"]`).classList.add('modal__card--active');
+        // modalOverlay.classList.add('modal__card-overlay--active');
+      
+   
  
 
     
@@ -66,7 +64,6 @@ function openModal() {
  
     
 
-}
 
 
 
