@@ -13,9 +13,8 @@
 
 .footer__footer-text:first-child {
   @include pre-tel {
-      margin-bottom: 10px;
-    }
- 
+    margin-bottom: 10px;
+  }
 }
 
 .footer-container {
@@ -28,9 +27,20 @@
 
 .footer__heart-icon {
   margin: 0 10px 0 10px;
+  animation: heartBeat 500ms infinite;
   display: inline-block;
 }
 
 .footer__link {
   color: $textColor;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
 }
