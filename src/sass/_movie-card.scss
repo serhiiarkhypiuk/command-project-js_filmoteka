@@ -1,0 +1,64 @@
+.movies__item {
+
+  @include pre-tab{
+    &:not(:last-child){
+      margin: 0 auto;
+    margin-bottom: 20px;}
+  }
+@include tab{
+  margin: 16px;
+  width: calc((100% - 2 * 32px) / 2);
+}
+  @include desk{
+    width: calc((100% - 3 * 32px) / 3);
+}
+}
+.movies__link {
+  text-decoration: none;
+}
+
+.movie__image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+  
+  
+}
+
+
+.movie__text-part {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  //   border: 1px solid #eeeeee;
+}
+
+.movie__title {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  text-decoration: none;
+  color: #000000;
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+.movie__genre {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  text-decoration: none;
+  color: #ff6b08;
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}

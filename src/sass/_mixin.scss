@@ -1,11 +1,11 @@
 @mixin tel {
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 320px) {
         @content;
     }
 }
 
 @mixin pre-tel {
-    @media screen and (max-width: 479px) {
+    @media screen and (max-width: 319px) {
         @content;
     }
 }
