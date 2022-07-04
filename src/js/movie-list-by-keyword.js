@@ -22,8 +22,6 @@ function moviesByKeyword(e) {
     movies.fetchGenr().then(generlist => {
       moviesByKeywordMarkUp(moviesList.results, generlist.genres);
     });
-
-    console.log(moviesList);
   });
 }
 
@@ -31,9 +29,7 @@ function moviesByKeywordMarkUp(movies, genres) {
   refs.list.innerHTML = movies
     .map(movie => {
       let movie_g = getGenrs(movie.genre_ids, genres);
-      if (movie_g.length > 2) {
-        movie_g = [movie_g[0], movie_g[1], 'Other'];
-      }
+
       return `<li class="movies__item">
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
@@ -41,18 +37,35 @@ function moviesByKeywordMarkUp(movies, genres) {
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title}</h2>
-            <p class="movie__genre">${movie_g.join(
-              ', '
+            <p class="movie__genre">${checkGenreList(
+              movie_g
             )} <span class="stick">|</span> 
-                <span class="movie__year">${movie.release_date.slice(
-                  0,
-                  4
+                <span class="movie__year">${checkReleaseDate(
+                  movie.release_date
                 )}</span></p>
         </div>
     </a>
 </li>`;
     })
     .join('');
+}
+
+function checkGenreList(genres) {
+  if (genres.length === 0) {
+    return '';
+  } else if (genres.length > 2) {
+    return `${genres[0]}, ${genres[1]}, Other`;
+  } else {
+    return `${[...genres].join(', ')}`;
+  }
+}
+
+function checkReleaseDate(date) {
+  if (date) {
+    return date.slice(0, 4);
+  } else {
+    return '';
+  }
 }
 
 function getGenrs(genresID, genres) {
