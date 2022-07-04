@@ -26,7 +26,7 @@ function topMoviesMarkUp(movies, genres) {
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title}</h2>
             <p class="movie__genre">${movie_g.join(
-              ' '
+              ', '
             )} <span class="stick">|</span> 
                 <span class="movie__year">${movie.release_date.slice(
                   0,
