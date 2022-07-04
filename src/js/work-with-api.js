@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 export default class TopMovies {
   constructor() {
     this.page = 1;
