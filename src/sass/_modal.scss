@@ -22,6 +22,7 @@
     opacity: 0;
     visibility: hidden;
     padding: 20px 0 40px 0;
+    z-index: 1000;
     @include tab{
             padding: 0;
         }
@@ -52,6 +53,7 @@
         border-radius: 5px;
         overflow-x: hidden;
         overflow-y: auto;
+        z-index: 1001;
 
 
     @include tab {
