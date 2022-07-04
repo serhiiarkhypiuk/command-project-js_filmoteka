@@ -12,18 +12,28 @@
           <a href="" class="link current menu__link menu__link-home">HOME</a>
         </li>
         <li class="menu__item">
-          <a href="./library.html" class="link menu__link menu__link-library">MY LIBRARY</a>
+          <a href="./library.html" class="link menu__link menu__link-library"
+            >MY LIBRARY</a
+          >
         </li>
       </ul>
     </nav>
   </div>
 
   <form id="search-form" action="" class="search">
-    <input class="search__input" type="text" placeholder="Movie search" />
+    <input
+      class="search__input"
+      type="text"
+      placeholder="Movie search"
+      name="search"
+    />
     <button class="search__button" type="submit" title="Start">
       <svg class="search__button-icon icon-search">
         <use href="./images/icons.svg#search"></use>
       </svg>
     </button>
+    <p class="search__error-message">
+      Search result not successful. Enter the correct movie name and
+    </p>
   </form>
 </header>

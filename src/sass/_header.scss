@@ -189,3 +189,23 @@
   bottom: 2px;
   stroke: $white-text-color;
 }
+
+.search__error-message {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 100%;
+  padding-top: 20px;
+  transform: translateX(-50%);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #ff001b;
+}
+.search__error-message.active {
+  display: block;
+}
