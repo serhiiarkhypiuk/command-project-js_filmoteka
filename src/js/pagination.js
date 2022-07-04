@@ -1,8 +1,18 @@
 import Pagination from 'tui-pagination';
 
-// const container = document.getElementById('tui-pagination-container');
-// const instance = new Pagination(container, { ... });
+const ITEMS_PER_PAGE_HOME = 20;
 
-// instance.getCurrentPage();
-
-export function createPagination() {}
+export function createPagination() {
+  const options = {
+    itemsPerPage: ITEMS_PER_PAGE_HOME,
+    visiblePages: 5,
+    page: 1,
+    totalItems: 200,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    usageStatistics: false,
+  };
+  const container = document.getElementById('tui-pagination-container');
+  window.pagination = new Pagination(container, options);
+}
