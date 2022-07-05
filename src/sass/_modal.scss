@@ -117,6 +117,7 @@
 .modal__img {
     display: block;
     margin-bottom: 20px;
+    object-fit: cover;
 
     
 
@@ -259,23 +260,19 @@
 }
 
 .modal__btn-add {
-    padding: 13px 10px;
+    width: 110px;
+    height: 44px;
     display: inline-block;
     font-size: $font-size;
     font-family: $font-family;
     font-weight: $font-weight;
     color: $black-text-color;
+    background-color: #ffffff;
     line-height: $line-height;
     text-align: center;
-    padding: 13px;
     border: 1px solid $black-text-color;
     border-radius: 5px;
     text-transform: uppercase;
-    transition: background-color 0.5s ease-in-out;
-    &:hover {
-        background-color: #fde7d7;
-        
-    }
         &:not(:last-child) {
             margin-right: 20px;
         }
@@ -285,7 +282,15 @@
                 margin-right: 15px;
             }
        
-        padding: 13px 7px;
+       width: 125px;
         
     }
+        @include desk {
+        width: 136px;
+    }
+}
+.modal__active-btn{
+        border: none;
+        background: #FF6B01;
+        color: #FFFFFF;
 }

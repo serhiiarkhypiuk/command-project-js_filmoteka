@@ -19,7 +19,7 @@ function topMoviesMarkUp(movies, genres) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
       return `<li class="movies__item">
-    <a href="" class="movies__link modal__open">
+    <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
         }' class="movie__image" alt="Movie">
