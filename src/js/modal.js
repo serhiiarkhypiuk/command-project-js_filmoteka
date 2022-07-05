@@ -1,15 +1,14 @@
 
-const btns = document.querySelector('.modal__card');
+const btns = document.querySelector('.modal__open');
 const modalOverlay = document.querySelector('.modal__card-overlay');
-const modalCard = document.querySelector('.modal__card');
+const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
 
       
 
 btns.addEventListener('click', showModal);
 function showModal(e) {
-    e.preventDefault();
-   
+        e.preventDefault();
         modalOverlay.classList.add('modal__card-overlay--active');
         modalCard.classList.add('modal__card--active');
         closeBtn.addEventListener('click', closeByBtn);
