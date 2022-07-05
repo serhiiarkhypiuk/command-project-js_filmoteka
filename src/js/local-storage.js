@@ -4,11 +4,12 @@ queueBtn.addEventListener("click", addToQueue)
 
 async function addToQueue() {
     const response = await fetchFilms()
+    console.log(response);
     console.log(response.genres);
-    const filmsId = response.genres.map(genres => genres.id)
+    // const filmsId = response.genres.map(genres => genres)
    
-    console.log(filmsId);
-    localStorage.setItem("data-queue", JSON.stringify(filmsId))
+    // console.log(filmsId);
+    localStorage.setItem("data-queue", JSON.stringify(response.genres))
 }
 
 async function fetchFilms() {
