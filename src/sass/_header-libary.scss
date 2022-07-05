@@ -91,7 +91,7 @@
 }
 
 .header_item {
-    &:last-child {
+    &:not(:first-child) {
         margin-left: 39px;
     }
 }
