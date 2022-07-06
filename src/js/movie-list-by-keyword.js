@@ -1,18 +1,20 @@
 import TopMovies from './work-with-api';
+import debounce from 'lodash.debounce';
 
 const movies = new TopMovies();
 
 const refs = {
   list: document.querySelector('.movie-collection'),
   formEl: document.querySelector('#search-form'),
+  inputEl: document.querySelector('.search__input'),
 };
 
-refs.formEl.addEventListener('submit', moviesByKeyword);
+refs.inputEl.addEventListener('input', debounce(moviesByKeyword, 1200));
 
 function moviesByKeyword(e) {
   e.preventDefault();
   removeErrorMessage();
-  const keyword = refs.formEl.elements.search.value.trim();
+  const keyword = e.target.value.trim();
 
   movies.searchMovieByKeyword(keyword).then(moviesList => {
     if (moviesList.results.length === 0) {
