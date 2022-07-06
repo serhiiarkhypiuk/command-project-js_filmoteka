@@ -32,7 +32,7 @@ function moviesByKeywordMarkUp(movies, genres) {
     .map(movie => {
       let movie_g = getGenrs(movie.genre_ids, genres);
 
-      return `<li class="movies__item">
+      return `<li class="movies__item" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
