@@ -203,6 +203,13 @@
     line-height: 116%;
     font-weight: $font-weight;
     color: $black-text-color;
+
+    @include tab {
+        max-width: 200px;
+    }
+    @include desk {
+        max-width: 300px;
+    }
     
     
 }
