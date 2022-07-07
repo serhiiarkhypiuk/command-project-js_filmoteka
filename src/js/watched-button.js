@@ -15,8 +15,12 @@ refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
 
 function onWatchedBtnClick() {
   topMoviesList.fetchGenr()
-    .then(genre => {
+      .then(genre => {
+          if (filmsFromLocalStorage) {
       topMoviesMarkUp(filmsFromLocalStorage, genre.genres)
+            
+        }
+    //   topMoviesMarkUp(filmsFromLocalStorage, genre.genres)
   })
 }
 

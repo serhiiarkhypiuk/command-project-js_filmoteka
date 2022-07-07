@@ -12,9 +12,12 @@ cardsList.addEventListener('click', (e) => {
         .then(movie => {
             movie.results.map(it => {
                 if (movId === it.id) {
-                    watchedMovies.push(it)
+                    watchedMovies.push(it);
                     localStorage.setItem('watched', JSON.stringify(watchedMovies))
                 }
             })
         });
 });
+
+// localStorage.removeItem('watched');
+console.log(localStorage.getItem('watched'))
