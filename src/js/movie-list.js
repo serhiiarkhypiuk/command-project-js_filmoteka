@@ -89,4 +89,15 @@ function changePage(event) {
     topList.preElip();
     getMovies();
   }
+
+  if (event.target.classList.contains('tui-ico-ellip')) {
+    if (event.target.parentElement.classList.contains('tui-next-is-ellip')) {
+      topList.nextElip();
+      getMovies();
+    }
+    if (event.target.parentElement.classList.contains('tui-prev-is-ellip')) {
+      topList.preElip();
+      getMovies();
+    }
+  }
 }
