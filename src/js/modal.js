@@ -11,9 +11,7 @@ function showModal(e) {
   if (e.target !== btns) {
     modalOverlay.classList.add('modal__card-overlay--active');
     modalCard.classList.add('modal__card--active');
-    closeBtn.addEventListener('click', closeByBtn);
-    modalOverlay.addEventListener('click', closeByOverlay);
-    window.addEventListener('keydown', closeByWindow);
+    closeModal();
   }
 }
 
@@ -21,6 +19,14 @@ function showModal(e) {
 // modalCard.classList.remove('modal__card--active');
 // document.querySelector(`[data-target="${path}"]`).classList.add('modal__card--active');
 // modalOverlay.classList.add('modal__card-overlay--active');
+
+function closeModal(){
+    closeBtn.addEventListener('click', closeByBtn);
+    modalOverlay.addEventListener('click', closeByOverlay);
+    window.addEventListener('keydown', closeByWindow);
+
+}
+
 
 function closeByOverlay(e) {
   if (e.target === modalOverlay) {
