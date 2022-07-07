@@ -18,12 +18,21 @@
 }
 
 .movie__image {
+  background-image: url(../images/Изображение\ из\ iOS.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
+  height: 398px;
 
+  @include tab{
+    height: 455px;
+  }
   
-  
+    @include desk {
+      height: 574px;
+    }
 }
 
 
