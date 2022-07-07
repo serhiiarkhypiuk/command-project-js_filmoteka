@@ -18,7 +18,7 @@ function topMoviesMarkUp(movies, genres) {
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
-      return `<li class="movies__item">
+      return `<li class="movies__item" id="${movie.id}">
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
