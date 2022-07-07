@@ -1,5 +1,5 @@
 
-const btns = document.querySelector('.modal__open');
+const btns = document.querySelector('.movie-collection');
 const modalOverlay = document.querySelector('.modal__card-overlay');
 const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
