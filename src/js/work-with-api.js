@@ -46,4 +46,11 @@ export default class TopMovies {
         return movies;
       });
   }
+
+  // set page(newPage) {
+  //   this.page = newPage;
+  // }
+  // goToFirstPage() {
+  //   this.page = 1;
+  // }
 }

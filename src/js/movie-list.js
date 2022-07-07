@@ -2,14 +2,19 @@ import TopMovies from './work-with-api';
 
 const refs = {
   list: document.querySelector('.movie-collection'),
+  pagination: document.querySelector('#tui-pagination-container'),
+  toFirst: document.querySelector('.tui-first'),
 };
 
 const topList = new TopMovies();
+refs.list.innerHTML = '<div class="loader"></div>';
 topList.fetchMovies().then(movies => {
   topList.fetchGenr().then(generlist => {
     topMoviesMarkUp(movies.results, generlist.genres);
   });
 });
+
+//refs.pagination.addEventListener('click', changePage);
 
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
@@ -43,3 +48,11 @@ function getGenrs(genresID, genres) {
     return genres.find(genre => genre.id === id).name;
   });
 }
+// function changePage(event) {
+//   if (event.target === refs.pagination) {
+//     return;
+//   }
+//   if (event.target === refs.toFirst) {
+//     topList.goToFirstPage();
+//   }
+// }
