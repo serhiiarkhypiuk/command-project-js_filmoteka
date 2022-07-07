@@ -1,3 +1,4 @@
+import { isGeneratorFunction } from 'util/types';
 import TopMovies from './work-with-api.js'
 const cardsList = document.querySelector('.movie-collection');
 
@@ -12,12 +13,13 @@ cardsList.addEventListener('click', (e) => {
         .then(movie => {
             movie.results.map(it => {
                 if (movId === it.id) {
+                    if (localStorage.getItem('watched')) {
+                        watchedMovies = JSON.parse(localStorage.getItem('watched'));
+                    }
                     watchedMovies.push(it);
-                    localStorage.setItem('watched', JSON.stringify(watchedMovies))
+                    localStorage.setItem('watched', JSON.stringify(watchedMovies));
                 }
             })
         });
 });
 
-// localStorage.removeItem('watched');
-console.log(localStorage.getItem('watched'))

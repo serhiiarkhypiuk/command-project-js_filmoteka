@@ -17,12 +17,11 @@ function onWatchedBtnClick() {
   topMoviesList.fetchGenr()
       .then(genre => {
           if (filmsFromLocalStorage) {
-      topMoviesMarkUp(filmsFromLocalStorage, genre.genres)
-            
+              topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
         }
-    //   topMoviesMarkUp(filmsFromLocalStorage, genre.genres)
-  })
-}
+    })
+};
+
 
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
