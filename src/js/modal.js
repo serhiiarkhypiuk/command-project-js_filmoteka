@@ -7,62 +7,9 @@ btns.addEventListener('click', showModal);
 async function showModal(e) {
   e.preventDefault();
   if (e.target !== btns) {
-    const movieId = e.target.closest('.movies__item').dataset.id;
-    modalCard.innerHTML = await fetchMovieDetails(movieId).then(data => {
-      const {
-        original_title,
-        vote_average,
-        vote_count,
-        poster_path,
-        popularity,
-        genres,
-        overview,
-      } = data;
-      console.log(data);
-      return `
-                <svg class="modal__close" width="14" height="14"><use href="/src/images/symbol-defs.svg#close"></use></svg>
-                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title.toUpperCase()}" class="modal__img" />
-                <div class="modal__info">
-                  
-                  <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
-                    
-                  <ul class="modal__info discription__modal">
-                      <li class="discription__modal-item">
-                        <p class="discription__modal-title">Vote / Votes</p>
-                        <p class="discription__modal-text"><span>${vote_average}</span> / ${vote_count}</p>
-                      </li>
-                      <li class="discription__modal-item">
-                        <p class="discription__modal-title">Popularity</p>
-                        <p class="discription__modal-text">${popularity.toFixed(
-                          1
-                        )}</p>
-                      </li>
-                      <li class="discription__modal-item">
-                        <p class="discription__modal-title">Original Title</p>
-                        <p class="discription__modal-text">${original_title.toUpperCase()}</p>
-                      </li>
-                      <li class="discription__modal-item">
-                        <p class="discription__modal-title">Genre</p>
-                        <p class="discription__modal-text">${checkGenreList(
-                          genres
-                        )}</p>
-                      </li>
-                  </ul>
-
-                  <div class="modal__info about__modal">
-                      <h4 class="about__modal-title">About</h4>
-                      <p class="about__modal-text">
-                        ${overview}
-                      </p>
-                  </div>
-                  <div class="modal__button">
-                      <button type="button" class="modal__btn-add modal__active-btn">add to Watched</button>
-                      <button type="button" class="modal__btn-add">add to queue</button>
-                      </div>
-                  </>
-                </div>
-            `;
-    });
+    modalOverlay.classList.add('modal__card-overlay--active');
+    modalCard.classList.add('modal__card--active');
+    closeModal();
   }
   closeBtn = document.querySelector('.modal__close');
   modalOverlay.classList.add('modal__card-overlay--active');
@@ -76,6 +23,12 @@ async function showModal(e) {
 // modalCard.classList.remove('modal__card--active');
 // document.querySelector(`[data-target="${path}"]`).classList.add('modal__card--active');
 // modalOverlay.classList.add('modal__card-overlay--active');
+
+function closeModal() {
+  closeBtn.addEventListener('click', closeByBtn);
+  modalOverlay.addEventListener('click', closeByOverlay);
+  window.addEventListener('keydown', closeByWindow);
+}
 
 function closeByOverlay(e) {
   if (e.target === modalOverlay) {
