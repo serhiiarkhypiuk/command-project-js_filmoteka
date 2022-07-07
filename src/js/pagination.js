@@ -7,7 +7,7 @@ export function createPagination() {
     itemsPerPage: ITEMS_PER_PAGE_HOME,
     visiblePages: 5,
     page: 1,
-    totalItems: 200,
+    totalItems: 400,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
