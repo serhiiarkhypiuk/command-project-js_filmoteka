@@ -3,6 +3,8 @@ const modalOverlay = document.querySelector('.modal__card-overlay');
 const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
 
+
+
 btns.addEventListener('click', showModal);
 function showModal(e) {
   e.preventDefault();

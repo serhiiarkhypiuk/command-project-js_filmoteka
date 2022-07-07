@@ -1,16 +1,24 @@
-import TopMovies from './work-with-api';
+import TopMovies from './work-with-api.js';
 
 const refs = {
-  list: document.querySelector('.movie-collection'),
+    watchedBtn: document.querySelector('.header_btn-watched'),
+    list: document.querySelector('.movie-collection'),
+    addToWatchedBtn: document.querySelector('.modal__btn-add'),
 };
 
-const topList = new TopMovies();
+topMoviesList = new TopMovies();
 
-topList.fetchMovies().then(movies => {
-  topList.fetchGenr().then(generlist => {
-    topMoviesMarkUp(movies.results, generlist.genres);
-  });
-});
+
+const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+
+refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
+
+function onWatchedBtnClick() {
+  topMoviesList.fetchGenr()
+    .then(genre => {
+      topMoviesMarkUp(filmsFromLocalStorage, genre.genres)
+  })
+}
 
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
@@ -39,8 +47,12 @@ function topMoviesMarkUp(movies, genres) {
     })
     .join('');
 }
+
+
 function getGenrs(genresID, genres) {
   return genresID.map(id => {
     return genres.find(genre => genre.id === id).name;
   });
 }
+
+
