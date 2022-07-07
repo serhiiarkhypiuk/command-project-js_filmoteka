@@ -260,8 +260,8 @@
         align-items: flex-end;
     }
     @include desk{
-        margin:0;
-            justify-content: flex-start;
+        margin:0 0 71 0;
+        align-items: flex-end;
     }
     
 
