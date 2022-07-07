@@ -47,10 +47,34 @@ export default class TopMovies {
       });
   }
 
-  // set page(newPage) {
-  //   this.page = newPage;
-  // }
-  // goToFirstPage() {
-  //   this.page = 1;
-  // }
+  cengePage(newPage) {
+    this.page = newPage;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
+  nextPage() {
+    this.page += 1;
+  }
+  prePage() {
+    this.page -= 1;
+  }
+  lastPage() {
+    this.page = 20;
+  }
+  preElip() {
+    if (this.page > 18) {
+      this.page = 15;
+    } else {
+      this.page -= 3;
+    }
+  }
+  nextElip() {
+    if (this.page < 3) {
+      this.page = 6;
+    } else {
+      this.page += 3;
+    }
+  }
 }
