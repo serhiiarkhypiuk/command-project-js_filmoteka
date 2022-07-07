@@ -16,3 +16,5 @@ export function createPagination() {
   const container = document.getElementById('tui-pagination-container');
   window.pagination = new Pagination(container, options);
 }
+
+createPagination();

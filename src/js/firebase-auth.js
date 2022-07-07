@@ -45,7 +45,7 @@ const loginEmailPasswrod = async () => {
       loginPassword
     );
     console.log(userCredential.user);
-    window.location.assign('./index');
+    // window.location.assign('./index');
   } catch (error) {
     console.log(error);
     showLoginError(error);
@@ -88,7 +88,7 @@ const logout = async () => {
   await auth
     .signOut()
     .then(() => {
-      window.location.assign('../');
+      // window.location.assign('../');
     })
     .catch(error => {
       console.error(error);
