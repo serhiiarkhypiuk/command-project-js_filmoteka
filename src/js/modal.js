@@ -9,6 +9,7 @@ async function showModal(e) {
   e.preventDefault();
   if (e.target !== btns) {
     const movieId = e.target.closest('.movies__item').dataset.id;
+    modalCard.setAttribute('data-id', movieId);
     modalInfo.innerHTML = await fetchMovieDetails(movieId).then(data => {
       const {
         original_title,
