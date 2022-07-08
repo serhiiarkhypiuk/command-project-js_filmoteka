@@ -143,6 +143,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         align-items: flex-start;
+     
     }
    @include desk {
         width: 391px;
@@ -195,7 +196,7 @@
 }
 
 .discription__modal-text {
-    white-space: nowrap;
+    //white-space: nowrap;
     max-width: 107px;
     margin: 0;
     font-family: $font-family;
@@ -203,6 +204,13 @@
     line-height: 116%;
     font-weight: $font-weight;
     color: $black-text-color;
+
+    @include tab {
+        max-width: 200px;
+    }
+    @include desk {
+        max-width: 300px;
+    }
     
     
 }
@@ -253,15 +261,15 @@
 .modal__button {
     padding: 0;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content: flex-start;
+    margin-top: 20px;
     @include tab {
-        // margin: 0 0 0 68px;
-        // align-items: flex-end;
+        margin: 0 0 0 68px;
+        align-items: flex-end;
+       
     }
     @include desk{
-        // margin:0 0 71 0;
-        // align-items: flex-end;
+        margin:0;
     }
     
 
