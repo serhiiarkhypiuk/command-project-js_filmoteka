@@ -9,6 +9,7 @@ async function showModal(e) {
   e.preventDefault();
   if (e.target !== btns) {
     const movieId = e.target.closest('.movies__item').dataset.id;
+    modalInfo.setAttribute('data-id', movieId);
     modalInfo.innerHTML = await fetchMovieDetails(movieId).then(data => {
       const {
         original_title,
@@ -20,7 +21,7 @@ async function showModal(e) {
         overview,
       } = data;
       return `
-                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}" class="modal__img" />
+                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title} " class="modal__img" />
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
                 <ul class="discription__modal">
                   <li class="discription__modal-item">
