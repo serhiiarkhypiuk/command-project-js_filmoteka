@@ -4,11 +4,14 @@ const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
 const modalInfo = modalCard.querySelector('.modal__info');
 
+
+
 btns.addEventListener('click', showModal);
 async function showModal(e) {
   e.preventDefault();
   if (e.target !== btns) {
     const movieId = e.target.closest('.movies__item').dataset.id;
+    modalCard.setAttribute('data-id', movieId);
     modalInfo.innerHTML = await fetchMovieDetails(movieId).then(data => {
       const {
         original_title,
@@ -18,12 +21,12 @@ async function showModal(e) {
         popularity,
         genres,
         overview,
+        id,
       } = data;
-      console.log(data);
       return `
-                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}" class="modal__img" />
+                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title} " class="modal__img" />
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
-                <ul class="discription__modal">
+                <ul class="discription__modal id=${id}">
                   <li class="discription__modal-item">
                     <p class="discription__modal-title">Vote / Votes</p>
                     <p class="discription__modal-text"><span>${vote_average}</span> / ${vote_count}</p>

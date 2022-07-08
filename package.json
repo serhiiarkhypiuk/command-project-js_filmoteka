@@ -28,6 +28,8 @@
     "@parcel/transformer-html": "^2.6.2",
     "@parcel/transformer-sass": "^2.6.2",
     "@parcel/transformer-webmanifest": "^2.6.2",
+    "@types/node": "^18.0.3",
+    "events": "^3.3.0",
     "parcel": "^2.6.2",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
