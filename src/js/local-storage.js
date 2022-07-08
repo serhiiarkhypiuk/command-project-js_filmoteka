@@ -31,4 +31,4 @@ async function fetchMovieDetails(id) {
     .then(data => {
       return data;
     });
-}
+};
