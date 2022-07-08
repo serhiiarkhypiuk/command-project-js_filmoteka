@@ -10,14 +10,27 @@ let watchedMovies = [];
 btnAddToWatch.addEventListener('click', e => {
   const isCardMovie = e.target.closest('.modal__card-content');
   const movId = isCardMovie.getAttribute('data-id');
+
   fetchMovieDetails(movId).then(movie => {
     if (localStorage.getItem('watched')) { 
-      watchedMovies = JSON.parse(localStorage.getItem('watched')); 
+      watchedMovies = JSON.parse(localStorage.getItem('watched'));
     }
-    watchedMovies.push(movie);
+    let isMovieExists = false;
+    for (let el of watchedMovies) {
+      if (el.id === movie.id) {
+        isMovieExists = true;
+        break;
+      }
+    };
+
+    if (!isMovieExists) {
+          watchedMovies.push(movie);
     localStorage.setItem('watched', JSON.stringify(watchedMovies));
+    }
+
   });
 });
+
 
 async function fetchMovieDetails(id) {
   return await fetch(
