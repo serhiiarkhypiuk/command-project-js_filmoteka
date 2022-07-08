@@ -7,7 +7,6 @@ const refs = {
 
 const topList = new TopMovies();
 
-
 getMovies();
 
 refs.pagination.addEventListener('click', changePage);
@@ -21,8 +20,6 @@ function getMovies() {
   });
 }
 
-
-
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
     .map(movie => {
@@ -30,7 +27,8 @@ function topMoviesMarkUp(movies, genres) {
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
-        return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
+
+      return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
@@ -55,7 +53,6 @@ function getGenrs(genresID, genres) {
     return genres.find(genre => genre.id === id).name;
   });
 }
-
 
 function changePage(event) {
   if (event.target === refs.pagination) {
