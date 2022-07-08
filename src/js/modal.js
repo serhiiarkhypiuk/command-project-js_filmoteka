@@ -21,7 +21,7 @@ async function showModal(e) {
         genres,
         overview,
       } = data;
-      return `
+      return `  
                 <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}" class="modal__img" />
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
                 <ul class="discription__modal">

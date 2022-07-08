@@ -10,6 +10,7 @@ topMoviesList = new TopMovies();
 
 
 const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+console.log(filmsFromLocalStorage)
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
 
