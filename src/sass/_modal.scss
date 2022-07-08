@@ -248,10 +248,17 @@
     font-weight: $font-weight;
     color: $black-text-color;
     text-align: justify;
+    
     margin: 0 0 20px 0;
     @include tab {
+        position: relative;
+        z-index: 100;
         margin: 0 0 14px 0;
+        height: 200px;
+        overflow: auto;
+       
     }
+
    @include desk {
        margin: 0 0 20px 0;
    }
