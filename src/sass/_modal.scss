@@ -69,7 +69,7 @@
     }
 
     @include desk {
-        display: flex;
+        
         width: 806px;
         height: 558px;
         padding: 40px 12px;
@@ -256,12 +256,12 @@
     justify-content: space-between;
     margin-bottom: 10px;
     @include tab {
-        margin: 0 0 0 68px;
-        align-items: flex-end;
+        // margin: 0 0 0 68px;
+        // align-items: flex-end;
     }
     @include desk{
-        margin:0 0 71 0;
-        align-items: flex-end;
+        // margin:0 0 71 0;
+        // align-items: flex-end;
     }
     
 
