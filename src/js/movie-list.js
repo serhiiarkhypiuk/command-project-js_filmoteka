@@ -55,6 +55,8 @@ function getGenrs(genresID, genres) {
     return genres.find(genre => genre.id === id).name;
   });
 }
+
+
 function changePage(event) {
   if (event.target === refs.pagination) {
     return;

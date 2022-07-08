@@ -6,32 +6,30 @@ const refs = {
     addToWatchedBtn: document.querySelector('.modal__btn-add'),
 };
 
-topMoviesList = new TopMovies();
+const topMoviesList = new TopMovies();
 
 
 const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
-console.log(filmsFromLocalStorage)
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
 
 function onWatchedBtnClick() {
   topMoviesList.fetchGenr()
-      .then(genre => {
+    .then(genre => {
           if (filmsFromLocalStorage) {
-              topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
+            topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
         }
     })
 };
 
-
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
     .map(movie => {
-      let movie_g = getGenrs(movie.genre_ids, genres);
+      let movie_g = getGenrs(genres);
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
-      return `<li class="movies__item" id="${movie.id}">
+        return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
@@ -53,10 +51,9 @@ function topMoviesMarkUp(movies, genres) {
 }
 
 
-function getGenrs(genresID, genres) {
-  return genresID.map(id => {
-    return genres.find(genre => genre.id === id).name;
+function getGenrs(genres) {
+  return genres.map(genre => {
+    return genre.name
   });
 }
-
 
