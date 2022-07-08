@@ -69,7 +69,7 @@
     }
 
     @include desk {
-        display: flex;
+        
         width: 806px;
         height: 558px;
         padding: 40px 12px;
@@ -143,6 +143,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         align-items: flex-start;
+     
     }
    @include desk {
         width: 391px;
@@ -203,6 +204,13 @@
     line-height: 116%;
     font-weight: $font-weight;
     color: $black-text-color;
+
+    @include tab {
+        max-width: 200px;
+    }
+    @include desk {
+        max-width: 300px;
+    }
     
     
 }
@@ -240,10 +248,17 @@
     font-weight: $font-weight;
     color: $black-text-color;
     text-align: justify;
+    
     margin: 0 0 20px 0;
     @include tab {
+        position: relative;
+        z-index: 100;
         margin: 0 0 14px 0;
+        height: 200px;
+        overflow: auto;
+       
     }
+
    @include desk {
        margin: 0 0 20px 0;
    }
@@ -253,14 +268,15 @@
 .modal__button {
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 20px;
     @include tab {
-        //margin: 0 0 0 68px;
+        margin: 0 0 0 68px;
         align-items: flex-end;
+       
     }
     @include desk{
-        //margin:0 0 71 0;
+        margin:0;
     }
     
 
