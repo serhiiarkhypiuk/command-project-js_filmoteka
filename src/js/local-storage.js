@@ -1,35 +1,56 @@
+
 const queueBtn = document.querySelector("#btn-queue")
-let pageNumber = 1
-console.log(queueBtn);
-queueBtn.addEventListener("click", addToQueue)
+const btns = document.querySelector('.movie-collection');
 
-async function addToQueue() {
-    const response = await fetchFilms()
-    console.log(response);
-    console.log(response.results);
-    const filmsTitle = response.results.map(({title}) => title)
-   console.log(filmsTitle);
-    // console.log(filmsId);
-    localStorage.setItem("data-queue", JSON.stringify(filmsTitle))
+btns.addEventListener('click', showModal);
+queueBtn.addEventListener("click", setDataStorage)
+async function showModal(e) {
+    e.preventDefault();
+    if (e.target !== btns) {
+        // console.log(e.target.closest('.movies__item'));
+        const movieId = e.target.closest('.movies__item').dataset.id;            
+            
+            await fetchMovieDetails(movieId).then(data => {
+                const {
+                    original_title,
+                    vote_average,
+                    vote_count,
+                    poster_path,
+                    popularity,
+                    genres,
+                    overview,
+                } = data;
+                // console.log(data);           
+                localStorage.setItem("data", JSON.stringify(data))                   
+                
+            })
+        
+        }
+    }          
+
+
+function setDataStorage() {
+    const dataStorage = JSON.parse(localStorage.getItem("data"))
+    console.log(dataStorage);
+    let array = []
+    array.push(dataStorage)
+    console.log(array);
+    localStorage.setItem('queue', JSON.stringify(array))
+    localStorage.removeItem("data")
 }
 
-async function fetchFilms() {
-   try {
-    const results = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=${pageNumber}`)
-   const response = await results.json()
-   console.log(response);
-    return response
-   } catch (error) {
-    console.log(error);
-   }
+
+async function fetchMovieDetails(id) {
+  return await fetch(
+    `https://api.themoviedb.org/3//movie/${id}?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US`
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      return data;
+    });
 }
-
-// fetchImages()
-// function fetchImages() {
-//     return fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US').then(response => {
-//         return response.json()
-//     })
-// }
-
-// fetchImages()
-//     .then(response => response.genres.map(genres => console.log(genres.id)))
