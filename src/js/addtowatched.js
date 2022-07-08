@@ -23,6 +23,9 @@ btnAddToWatch.addEventListener('click', e => {
   });
 });
 
+
+
+
 async function fetchMovieDetails(id) {
   return await fetch(
     `https://api.themoviedb.org/3//movie/${id}?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US`
