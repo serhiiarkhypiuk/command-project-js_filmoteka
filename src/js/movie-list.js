@@ -53,7 +53,6 @@ function getGenrs(genresID, genres) {
   });
 }
 function changePage(event) {
-  console.log(event.target);
   if (event.target === refs.pagination) {
     return;
   }
