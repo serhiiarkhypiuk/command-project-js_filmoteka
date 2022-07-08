@@ -4,6 +4,8 @@ const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
 const modalInfo = modalCard.querySelector('.modal__info');
 
+
+
 btns.addEventListener('click', showModal);
 async function showModal(e) {
   e.preventDefault();

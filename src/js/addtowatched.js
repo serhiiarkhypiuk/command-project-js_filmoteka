@@ -13,12 +13,18 @@ btnAddToWatch.addEventListener('click', e => {
   fetchMovieDetails(movId).then(movie => {
     // movie.results.map(it => {
     //   if (movId === it.id) {
+                        if (localStorage.getItem('watched')) { 
+                        watchedMovies = JSON.parse(localStorage.getItem('watched')); 
+                    }
     watchedMovies.push(movie);
     localStorage.setItem('watched', JSON.stringify(watchedMovies));
     //   }
     // });
   });
 });
+
+
+
 
 async function fetchMovieDetails(id) {
   return await fetch(
