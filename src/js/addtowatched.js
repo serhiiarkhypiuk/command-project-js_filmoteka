@@ -1,10 +1,12 @@
 // (FT-18 За натисканням на кнопку "Add to watched" фільм додається до переглянутих фільмів поточного користувача (local-storage))
+import TopMovies from './work-with-api.js';
 
 const btnAddToWatch = document.querySelector('.modal__active-btn');
 
 import TopMovies from './work-with-api.js';
 
 const topMovies = new TopMovies();
+
 let watchedMovies = [];
 
 btnAddToWatch.addEventListener('click', e => {
@@ -12,7 +14,7 @@ btnAddToWatch.addEventListener('click', e => {
   const movId = isCardMovie.getAttribute('data-id');
 
   fetchMovieDetails(movId).then(movie => {
-    if (localStorage.getItem('watched')) { 
+    if (localStorage.getItem('watched')) {
       watchedMovies = JSON.parse(localStorage.getItem('watched'));
     }
     let isMovieExists = false;
@@ -21,16 +23,14 @@ btnAddToWatch.addEventListener('click', e => {
         isMovieExists = true;
         break;
       }
-    };
-
-    if (!isMovieExists) {
-          watchedMovies.push(movie);
-    localStorage.setItem('watched', JSON.stringify(watchedMovies));
     }
 
+    if (!isMovieExists) {
+      watchedMovies.push(movie);
+      localStorage.setItem('watched', JSON.stringify(watchedMovies));
+    }
   });
 });
-
 
 async function fetchMovieDetails(id) {
   return await fetch(

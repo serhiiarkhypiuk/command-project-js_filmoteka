@@ -2,8 +2,13 @@
   display: block;
   margin: 0 auto;
   width: 100%;
-  padding: 45px 20px;
+  padding: 44px 20px;
   height: 230px;
+
+  max-width: 1280px;
+  min-height: 216px;
+  margin-left: auto;
+  margin-right: auto;
 
   font-family: $font-family;
   font-weight: 500;
@@ -16,13 +21,13 @@
   background-size: cover;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    padding: 45px 60px 20px;
+    padding: 49px 33px;
     height: 216px;
     background-image: url(../images/header-tablet-bg.jpg);
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 40px;
+    padding: 49px 32px;
     height: 216px;
     background-image: url(../images/header-desktop-bg.jpg);
   }
@@ -37,8 +42,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 37px;
+  margin-bottom: 41px;
   max-width: 320px;
+
+  // padding-left: 20px;
+  // padding-right: 20px;
+  // padding-top: 44px;
 
   @media screen and (max-width: 767px) {
     margin-bottom: 45px;
@@ -46,11 +55,16 @@
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     max-width: 768px;
+    // padding-left: 33px;
+    // padding-right: 33px;
+    // padding-top: 49px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0;
     max-width: 1280px;
+    // padding-left: 32px;
+    // padding-right: 32px;
+    // padding-top: 49px;
   }
 }
 
@@ -84,18 +98,25 @@
   }
 
   @media screen and (min-width: 1280px) {
-    margin-right: 10px;
+    margin-right: 12px;
   }
 }
 
 .logo__text {
   font-size: 30px;
-  line-height: 1.72;
+  line-height: 35 / 30;
   font-weight: 500;
   color: $white-text-color;
 
   @media screen and (max-width: 767px) {
     display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+  }
+  @media screen and (min-width: 1280px) {
+    display: inline-block;
   }
 }
 
