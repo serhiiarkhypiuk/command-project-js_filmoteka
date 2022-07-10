@@ -143,18 +143,29 @@
 
 .header_btn-watched {
   display: block;
-  border: none;
-  width: 148px;
-  height: 42px;
-  background: #ff6b01;
-  border-radius: 5px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16 / 12;
-  color: #ffffff;
+    margin-left: 20px;
+    width: 148px;
+    height: 42px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16 / 12;
+    color: #ffffff;
+  
+    @media screen and (min-width: 768px) {
+      margin-left: 32px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      margin-left: 16px;
+    }
 }
+
+
 
 .header_btn-queue {
   display: block;
@@ -178,7 +189,12 @@
     margin-left: 16px;
   }
 }
-
+.header-active-button {
+  border: none;
+  background: #ff6b01;
+  color: #ffffff;
+  
+}
 .header_image {
   display: inline-block;
 }
