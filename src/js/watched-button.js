@@ -1,26 +1,26 @@
 import TopMovies from './work-with-api.js';
 
 const refs = {
-    watchedBtn: document.querySelector('.header_btn-watched'),
-    list: document.querySelector('.movie-collection'),
-    addToWatchedBtn: document.querySelector('.modal__btn-add'),
+  watchedBtn: document.querySelector('.header_btn-watched'),
+  list: document.querySelector('.movie-collection'),
+  addToWatchedBtn: document.querySelector('.modal__btn-add'),
 };
 
 const topMoviesList = new TopMovies();
 
-
 const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+
+onWatchedBtnClick();
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
 
 function onWatchedBtnClick() {
-  topMoviesList.fetchGenr()
-    .then(genre => {
-          if (filmsFromLocalStorage) {
-            topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
-        }
-    })
-};
+  topMoviesList.fetchGenr().then(genre => {
+    if (filmsFromLocalStorage) {
+      topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
+    }
+  });
+}
 
 function topMoviesMarkUp(movies, genres) {
   refs.list.innerHTML = movies
@@ -29,7 +29,7 @@ function topMoviesMarkUp(movies, genres) {
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
-        return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
+      return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
@@ -50,9 +50,8 @@ function topMoviesMarkUp(movies, genres) {
     .join('');
 }
 
-
 function getGenrs(genres) {
   return genres.map(genre => {
-    return genre.name
+    return genre.name;
   });
 }
