@@ -56,4 +56,3 @@ function getGenrs(genres) {
     return genre.name
   });
 }
-

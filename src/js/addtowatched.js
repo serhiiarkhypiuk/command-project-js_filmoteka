@@ -3,22 +3,32 @@ import TopMovies from './work-with-api.js';
 
 const btnAddToWatch = document.querySelector('.modal__active-btn');
 
-// const cardsList = document.querySelector('.movie-collection');
-//topMovies = new TopMovies();
+import TopMovies from './work-with-api.js';
+
+const topMovies = new TopMovies();
+
 let watchedMovies = [];
+
 btnAddToWatch.addEventListener('click', e => {
   const isCardMovie = e.target.closest('.modal__card-content');
   const movId = isCardMovie.getAttribute('data-id');
+
   fetchMovieDetails(movId).then(movie => {
-    // movie.results.map(it => {
-    //   if (movId === it.id) {
     if (localStorage.getItem('watched')) {
       watchedMovies = JSON.parse(localStorage.getItem('watched'));
     }
-    watchedMovies.push(movie);
-    localStorage.setItem('watched', JSON.stringify(watchedMovies));
-    //   }
-    // });
+    let isMovieExists = false;
+    for (let el of watchedMovies) {
+      if (el.id === movie.id) {
+        isMovieExists = true;
+        break;
+      }
+    }
+
+    if (!isMovieExists) {
+      watchedMovies.push(movie);
+      localStorage.setItem('watched', JSON.stringify(watchedMovies));
+    }
   });
 });
 
