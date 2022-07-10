@@ -1,7 +1,8 @@
 // (FT-18 За натисканням на кнопку "Add to watched" фільм додається до переглянутих фільмів поточного користувача (local-storage))
 import TopMovies from './work-with-api.js';
 
-const btnAddToWatch = document.querySelector('.modal__active-btn');
+const btnAddToWatch = document.querySelector('.wached');
+const btnAddToQueue = document.querySelector('.queue');
 
 import TopMovies from './work-with-api.js';
 
@@ -30,6 +31,9 @@ btnAddToWatch.addEventListener('click', e => {
       localStorage.setItem('watched', JSON.stringify(watchedMovies));
     }
   });
+  btnAddToQueue.classList.remove('modal__active-btn');
+  btnAddToWatch.classList.add('modal__active-btn');
+  btnAddToWatch.textContent = 'Remove at Watched';
 });
 
 async function fetchMovieDetails(id) {

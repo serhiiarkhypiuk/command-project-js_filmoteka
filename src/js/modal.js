@@ -3,8 +3,8 @@ const modalOverlay = document.querySelector('.modal__card-overlay');
 const modalCard = document.querySelector('.modal__card-content');
 const closeBtn = document.querySelector('.modal__close');
 const modalInfo = modalCard.querySelector('.modal__info');
-
-
+const btnAddToWatch = document.querySelector('.wached');
+const btnAddToQueue = document.querySelector('.queue');
 
 btns.addEventListener('click', showModal);
 async function showModal(e) {
@@ -74,6 +74,7 @@ function closeByOverlay(e) {
     modalOverlay.removeEventListener('click', closeByOverlay);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
+    cleanButtons();
   }
 }
 
@@ -82,6 +83,7 @@ function closeByBtn(e) {
     closeBtn.removeEventListener('click', closeByBtn);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
+    cleanButtons();
   }
 }
 
@@ -90,6 +92,7 @@ function closeByWindow(e) {
     window.removeEventListener('keydown', closeByWindow);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
+    cleanButtons();
   }
 }
 
@@ -116,4 +119,10 @@ function checkGenreList(genres) {
   } else {
     return `${[genres.map(genre => genre.name)].join(', ')}`;
   }
+}
+function cleanButtons() {
+  btnAddToQueue.classList.remove('modal__active-btn');
+  btnAddToWatch.classList.remove('modal__active-btn');
+  btnAddToQueue.textContent = 'add to queue';
+  btnAddToWatch.textContent = 'add to Watched';
 }
