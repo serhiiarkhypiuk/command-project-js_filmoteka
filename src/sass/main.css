@@ -174,7 +174,7 @@ button {
   fill: #ffffff;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1267px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .logo__svg {
     margin-right: 10px;
   }
@@ -281,6 +281,23 @@ button {
 
 .search__input::placeholder {
   color: #ffffff;
+}
+
+.search__input:focus,
+.search__input :active {
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.search__input:-webkit-autofill,
+.search__input :-webkit-autofill:hover,
+.search__input :-webkit-autofill:focus,
+.search__input :-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .search__button {
