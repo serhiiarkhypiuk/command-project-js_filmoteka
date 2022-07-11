@@ -1,21 +1,20 @@
 // (FT-18 За натисканням на кнопку "Add to watched" фільм додається до переглянутих фільмів поточного користувача (local-storage))
-import TopMovies from './work-with-api.js';
 
 const btnAddToWatch = document.querySelector('.wached');
 const btnAddToQueue = document.querySelector('.queue');
 
-let watchedMovies = [];
+let queueMovies = [];
 
-btnAddToWatch.addEventListener('click', e => {
+btnAddToQueue.addEventListener('click', e => {
   const isCardMovie = e.target.closest('.modal__card-content');
   const movId = isCardMovie.getAttribute('data-id');
 
   fetchMovieDetails(movId).then(movie => {
-    if (localStorage.getItem('watched')) {
-      watchedMovies = JSON.parse(localStorage.getItem('watched'));
+    if (localStorage.getItem('queue')) {
+      queueMovies = JSON.parse(localStorage.getItem('queue'));
     }
     let isMovieExists = false;
-    for (let el of watchedMovies) {
+    for (let el of queueMovies) {
       if (el.id === movie.id) {
         isMovieExists = true;
         break;
@@ -23,13 +22,13 @@ btnAddToWatch.addEventListener('click', e => {
     }
 
     if (!isMovieExists) {
-      watchedMovies.push(movie);
-      localStorage.setItem('watched', JSON.stringify(watchedMovies));
+      queueMovies.push(movie);
+      localStorage.setItem('queue', JSON.stringify(queueMovies));
     }
   });
-  btnAddToQueue.classList.remove('modal__active-btn');
-  btnAddToWatch.classList.add('modal__active-btn');
-  btnAddToWatch.textContent = 'Remove at Watched';
+  btnAddToWatch.classList.remove('modal__active-btn');
+  btnAddToQueue.classList.add('modal__active-btn');
+  btnAddToQueue.textContent = 'Remove at queue';
 });
 
 async function fetchMovieDetails(id) {
