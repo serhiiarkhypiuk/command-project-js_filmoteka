@@ -10,20 +10,37 @@ const refs = {
 const topMoviesList = new TopMovies();
 
 const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+const filmsFromQueueLocalStorage = JSON.parse(localStorage.getItem('queue'));
 
 onWatchedMarkup();
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
+refs.queueBtn.addEventListener('click', onQueueBtnClick);
 
 function onWatchedBtnClick() {
   refs.queueBtn.classList.remove('header-active-button');
   refs.watchedBtn.classList.add('header-active-button');
   onWatchedMarkup();
 }
+
+function onQueueBtnClick() {
+  refs.queueBtn.classList.add('header-active-button');
+  refs.watchedBtn.classList.remove('header-active-button');
+  onQueueMarkup();
+}
+
 function onWatchedMarkup() {
   topMoviesList.fetchGenr().then(genre => {
     if (filmsFromLocalStorage) {
       topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
+    }
+  });
+}
+
+function onQueueMarkup() {
+  topMoviesList.fetchGenr().then(genre => {
+    if (filmsFromQueueLocalStorage) {
+      topMoviesMarkUp(filmsFromQueueLocalStorage, genre.genres);
     }
   });
 }
@@ -37,18 +54,17 @@ function topMoviesMarkUp(movies, genres) {
       }
       return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
-        <img src='https://image.tmdb.org/t/p/original${
-          movie.poster_path
+        <img src='https://image.tmdb.org/t/p/original${movie.poster_path
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title}</h2>
             <p class="movie__genre">${movie_g.join(
-              ', '
-            )} <span class="stick">|</span> 
+          ', '
+        )} <span class="stick">|</span> 
                 <span class="movie__year">${movie.release_date.slice(
-                  0,
-                  4
-                )}</span></p>
+          0,
+          4
+        )}</span></p>
         </div>
     </a>
 </li>`;
