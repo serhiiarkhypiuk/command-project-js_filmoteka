@@ -26,8 +26,6 @@ btnAddToQueue.addEventListener('click', e => {
       localStorage.setItem('queue', JSON.stringify(queueMovies));
     }
   });
-  btnAddToWatch.classList.remove('modal__active-btn');
-  btnAddToQueue.classList.add('modal__active-btn');
   btnAddToQueue.textContent = 'Remove at queue';
 });
 

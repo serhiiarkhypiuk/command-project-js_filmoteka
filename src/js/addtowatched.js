@@ -27,8 +27,6 @@ btnAddToWatch.addEventListener('click', e => {
       localStorage.setItem('watched', JSON.stringify(watchedMovies));
     }
   });
-  btnAddToQueue.classList.remove('modal__active-btn');
-  btnAddToWatch.classList.add('modal__active-btn');
   btnAddToWatch.textContent = 'Remove at Watched';
 });
 

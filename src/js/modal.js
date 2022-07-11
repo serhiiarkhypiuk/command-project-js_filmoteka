@@ -121,8 +121,6 @@ function checkGenreList(genres) {
   }
 }
 function cleanButtons() {
-  btnAddToQueue.classList.remove('modal__active-btn');
-  btnAddToWatch.classList.remove('modal__active-btn');
   btnAddToQueue.textContent = 'add to queue';
   btnAddToWatch.textContent = 'add to Watched';
 }
