@@ -4,6 +4,7 @@ import { createPagination } from './pagination';
 const refs = {
   list: document.querySelector('.movie-collection'),
   pagination: document.querySelector('#tui-pagination-container'),
+  form: document.querySelector('#search-form'),
 };
 
 const topList = new TopMovies();
@@ -12,12 +13,14 @@ topList.fetchGenr();
 getMovies();
 
 refs.pagination.addEventListener('click', changePage);
+refs.form.addEventListener('submit', () => {
+  refs.pagination.removeEventListener('click', changePage);
+});
 
 async function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
     topList.endPage = movies.total_pages;
-    topList.totalItems = movies.total_results;
     topMoviesMarkUp(movies.results);
   });
 }

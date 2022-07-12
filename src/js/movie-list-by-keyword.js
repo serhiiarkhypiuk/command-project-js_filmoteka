@@ -1,5 +1,6 @@
 import TopMovies from './work-with-api';
 import { createPagination } from './pagination';
+
 const movies = new TopMovies();
 
 const refs = {
@@ -17,7 +18,7 @@ function moviesByKeyword(e) {
   e.preventDefault();
   movies.resetPage();
   pagination.movePageTo(movies.page);
-  refs.pagination.addEventListener('click', changePage);
+  refs.pagination.addEventListener('click', changePageName);
   removeErrorMessage();
   movies.keyword = e.target.elements.search.value.trim();
 
@@ -113,7 +114,7 @@ function removeErrorMessage() {
   }
 }
 
-function changePage(event) {
+function changePageName(event) {
   if (event.target === refs.pagination) {
     return;
   }
