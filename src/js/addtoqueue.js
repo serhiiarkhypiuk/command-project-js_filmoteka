@@ -24,10 +24,14 @@ btnAddToQueue.addEventListener('click', e => {
     if (!isMovieExists) {
       queueMovies.push(movie);
       localStorage.setItem('queue', JSON.stringify(queueMovies));
+  btnAddToQueue.textContent = 'remove from queue';
+
+    } else {
+      removeFromQueue(movie.id);
+  btnAddToQueue.textContent = 'add to queue';
     }
   });
-  btnAddToWatch.textContent = 'add to Watched';
-  btnAddToQueue.textContent = 'Remove at queue';
+  // btnAddToQueue.textContent = 'add to queue';
 });
 
 async function fetchMovieDetails(id) {
@@ -43,4 +47,11 @@ async function fetchMovieDetails(id) {
     .then(data => {
       return data;
     });
+}
+
+
+function removeFromQueue(id) {
+  const films = JSON.parse(localStorage.getItem('queue'));
+  const filtered = films.filter(el => el.id !== id);
+  localStorage.setItem('queue', JSON.stringify(filtered));
 }
