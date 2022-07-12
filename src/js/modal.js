@@ -26,6 +26,7 @@ async function showModal(e) {
       } = data;
       return `
                 <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title} " class="modal__img" />
+                <div class="modal-movie-film-text">
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
                 <ul class="discription__modal id=${id}">
                   <li class="discription__modal-item">
@@ -53,11 +54,10 @@ async function showModal(e) {
                 <h4 class="about__modal-title">About</h4>
                 <p class="about__modal-text">
                   ${overview}
-                </p>
+                </p></div>
             `;
     });
   }
-  closeBtn;
   modalOverlay.classList.add('modal__card-overlay--active');
   modalCard.classList.add('modal__card--active');
   closeBtn.addEventListener('click', closeByBtn);
@@ -115,10 +115,8 @@ async function fetchMovieDetails(id) {
 function checkGenreList(genres) {
   if (genres.length === 0) {
     return '';
-  } else if (genres.length > 2) {
-    return `${genres[0].name}, ${genres[1].name}, Other`;
   } else {
-    return `${[genres.map(genre => genre.name)].join(', ')}`;
+    return `${genres.map(genre => genre.name).join(', ')}`;
   }
 }
 // function cleanButtons() {

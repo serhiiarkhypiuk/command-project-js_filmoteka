@@ -6,6 +6,7 @@ const refs = {
 };
 
 const topList = new TopMovies();
+topList.fetchGenr();
 
 getMovies();
 
@@ -14,16 +15,20 @@ refs.pagination.addEventListener('click', changePage);
 function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
-    topList.fetchGenr().then(generlist => {
-      topMoviesMarkUp(movies.results, generlist.genres);
-    });
+    topMoviesMarkUp(movies.results);
   });
 }
 
-function topMoviesMarkUp(movies, genres) {
-  refs.list.innerHTML = movies
+function topMoviesMarkUp(movies) {
+  refs.list.innerHTML = [...movies]
     .map(movie => {
-      let movie_g = getGenrs(movie.genre_ids, genres);
+      let movie_g = [];
+      if (movie.genre_ids) {
+        movie_g = getGenrs(
+          movie.genre_ids,
+          JSON.parse(localStorage.getItem('genres'))
+        );
+      }
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
@@ -38,7 +43,9 @@ function topMoviesMarkUp(movies, genres) {
               ', '
             )} <span class="stick">|</span> 
                 <span class="movie__year">${(
-                  movie.release_date || movie.first_air_date
+                  movie.release_date ||
+                  movie.first_air_date ||
+                  ''
                 ).slice(0, 4)}</span></p>
         </div>
     </a>

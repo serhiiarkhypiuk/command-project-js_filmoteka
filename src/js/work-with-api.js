@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 export default class TopMovies {
   constructor() {
     this.page = 1;
+    this.keyWord = '';
   }
   async fetchMovies() {
     try {
@@ -29,12 +30,12 @@ export default class TopMovies {
         return response.json();
       })
       .then(geners => {
-        return geners;
+        localStorage.setItem('genres', JSON.stringify(geners.genres));
       });
   }
-  async searchMovieByKeyword(str) {
+  async searchMovieByKeyword() {
     return await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=1&query=${str}`
+      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=1&query=${this.keyword}&page=${this.page}`
     )
       .then(response => {
         if (!response.ok) {
@@ -61,11 +62,11 @@ export default class TopMovies {
     this.page -= 1;
   }
   lastPage() {
-    this.page = 20;
+    this.page = 1000; // due to the API limits
   }
   preElip() {
-    if (this.page > 18) {
-      this.page = 15;
+    if (this.page > 998) {
+      this.page = 995;
     } else {
       this.page -= 3;
     }
@@ -76,5 +77,13 @@ export default class TopMovies {
     } else {
       this.page += 3;
     }
+  }
+
+  get keyword() {
+    return this.keyWord;
+  }
+
+  set keyword(newKeyword) {
+    this.keyWord = newKeyword;
   }
 }

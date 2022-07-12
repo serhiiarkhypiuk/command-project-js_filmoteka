@@ -22,19 +22,17 @@ function onWatchedBtnClick() {
 }
 
 function onWatchedMarkup() {
-  topMoviesList.fetchGenr().then(genre => {
     const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+  if (filmsFromLocalStorage) {
+    topMoviesMarkUp(filmsFromLocalStorage);
+  }
 
-    if (filmsFromLocalStorage) {
-      topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
-    }
-  });
 }
 
-function topMoviesMarkUp(movies, genres) {
+function topMoviesMarkUp(movies) {
   refs.list.innerHTML = movies
     .map(movie => {
-      let movie_g = getGenrs(genres);
+      let movie_g = getGenrs(JSON.parse(localStorage.getItem('genres')));
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
@@ -70,7 +68,7 @@ function getGenrs(genres) {
   return genres.map(genre => {
     return genre.name;
   });
-};
+}
 
 function isLocalStorageItemEmpty(localStorageKey) {
   if (!localStorage.getItem(localStorageKey)) {
