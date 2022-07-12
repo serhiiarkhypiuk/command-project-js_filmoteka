@@ -7,6 +7,7 @@ const btnAddToWatch = document.querySelector('.wached');
 const btnAddToQueue = document.querySelector('.queue');
 
 btns.addEventListener('click', showModal);
+
 async function showModal(e) {
   e.preventDefault();
   if (e.target !== btns) {
@@ -74,7 +75,7 @@ function closeByOverlay(e) {
     modalOverlay.removeEventListener('click', closeByOverlay);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
-    cleanButtons();
+    // cleanButtons();
   }
 }
 
@@ -83,7 +84,7 @@ function closeByBtn(e) {
     closeBtn.removeEventListener('click', closeByBtn);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
-    cleanButtons();
+    // cleanButtons();
   }
 }
 
@@ -92,7 +93,7 @@ function closeByWindow(e) {
     window.removeEventListener('keydown', closeByWindow);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
-    cleanButtons();
+    // cleanButtons();
   }
 }
 
@@ -120,7 +121,7 @@ function checkGenreList(genres) {
     return `${[genres.map(genre => genre.name)].join(', ')}`;
   }
 }
-function cleanButtons() {
-  btnAddToQueue.textContent = 'add to queue';
-  btnAddToWatch.textContent = 'add to Watched';
-}
+// function cleanButtons() {
+//   btnAddToQueue.textContent = 'add to queue';
+//   btnAddToWatch.textContent = 'add to Watched';
+// }

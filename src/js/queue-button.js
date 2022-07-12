@@ -4,22 +4,22 @@ const refs = {
   watchedBtn: document.querySelector('.header_btn-watched'),
   queueBtn: document.querySelector('.header_btn-queue'),
   list: document.querySelector('.movie-collection'),
-  addToWatchedBtn: document.querySelector('.modal__btn-add'),
 };
 
 const topMoviesList = new TopMovies();
 
-const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
-
 refs.queueBtn.addEventListener('click', onWatchedBtnClick);
 
 function onWatchedBtnClick() {
+  
   refs.watchedBtn.classList.remove('header-active-button');
   refs.queueBtn.classList.add('header-active-button');
   onWatchedMarkup();
 }
 function onWatchedMarkup() {
   topMoviesList.fetchGenr().then(genre => {
+    const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
+
     if (filmsFromLocalStorage) {
       topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
     }
@@ -52,6 +52,21 @@ function topMoviesMarkUp(movies, genres) {
 </li>`;
     })
     .join('');
+  
+  const placeholder = document.querySelector('.placeholder');
+  if (isLocalStorageItemEmpty('queue')) {
+    placeholder.style.display = 'block';
+  } else {
+    placeholder.style.display = 'none';
+  }
+}
+
+function isLocalStorageItemEmpty(localStorageKey) {
+  if (!localStorage.getItem(localStorageKey)) {
+    return true;
+  }
+
+  return JSON.parse(localStorage.getItem(localStorageKey)).length === 0;
 }
 
 function getGenrs(genres) {
@@ -59,3 +74,9 @@ function getGenrs(genres) {
     return genre.name;
   });
 }
+
+//Rerender after delete movie
+const btnAddToQueue = document.querySelector('.queue');
+btnAddToQueue.addEventListener('click', (e) => {
+  setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
+});
