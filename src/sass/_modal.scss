@@ -57,10 +57,10 @@
 
 
     @include tab {
-        display: flex;
+        //display: flex;
         width: 704px;
-        height: 552px;
-        padding: 40px 72px 40px 36px;
+        height: 500px;
+        padding: 40px 72px 30px 36px;
         position: relative;
         background-color: white;
         border-radius: 5px;
@@ -83,9 +83,8 @@
 
 .modal__close {
         position: absolute;
-        top: 0;
+        top: 10px;
         left: 90%;
-        margin: 10px;
         width: 14px;
         height: 14px;
         cursor: pointer;
@@ -115,19 +114,15 @@
     margin-bottom: 20px;
     object-fit: cover;
     @include tab {
-        min-width: 264px;
-        min-height: 374px;
+        margin-bottom: 0;
+        width: 264px;
+        height: 374px;
         margin-right: 50px;
-        margin-bottom: 60px;
-        
-        
-  
     }
     @include desk {
         width: 375px;
         height: 478px;
         margin-right: 20px;
-        margin-bottom: 0;
     }
 }
 
@@ -136,13 +131,16 @@
     @include tab {
        width: 264px;
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: flex-start;
      
     }
    @include desk {
         width: 391px;
+    }
+}
+.modal-movie-film-text{
+    flex-direction: column;
+    @include pre-tab {
+        margin-bottom: 20px;
     }
 }
 
@@ -170,7 +168,7 @@
     color: #000000;
     @include desk {
     
-            width: 350px;
+        width: 350px;
     
         }
   
@@ -250,14 +248,9 @@
     font-weight: $font-weight;
     color: $black-text-color;
     text-align: justify;
-    
-    margin: 0 0 20px 0;
     @include tab {
-        position: relative;
-        z-index: 100;
-        margin: 0;
         width: 325px;
-        height: 150px;
+        height: 130px;
         overflow-y: auto;
         overflow-x: hidden;
        
@@ -265,8 +258,7 @@
 
    @include desk {
      
-       width: 350px;
-       height: 150px;
+       width: 400px;
    }
     
 }
@@ -274,16 +266,15 @@
 .modal__button {
     padding: 0;
     display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
     @include tab {
-        margin: 0 0 75px 50px;
-        align-items: flex-end;
-       
+       position: absolute;
+       bottom: 40px;
+       left: 350px;
+       z-index: 10;
     }
     @include desk{
-        
-        margin: 0 0 100px 0;
+        bottom: 40px;
+        left: 400px;
     }
     
 

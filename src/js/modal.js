@@ -25,6 +25,7 @@ async function showModal(e) {
       } = data;
       return `
                 <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title} " class="modal__img" />
+                <div class="modal-movie-film-text">
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
                 <ul class="discription__modal id=${id}">
                   <li class="discription__modal-item">
@@ -52,7 +53,7 @@ async function showModal(e) {
                 <h4 class="about__modal-title">About</h4>
                 <p class="about__modal-text">
                   ${overview}
-                </p>
+                </p></div>
             `;
     });
   }
