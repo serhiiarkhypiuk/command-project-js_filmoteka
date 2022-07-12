@@ -68,7 +68,7 @@ button {
   width: 100%;
   padding: 44px 20px;
   height: 230px;
-  max-width: 1280px;
+  max-width: 100vw;
   min-height: 216px;
   margin-left: auto;
   margin-right: auto;
@@ -421,7 +421,7 @@ button {
   .modal__card-content {
     width: 806px;
     height: 558px;
-    padding: 40px 12px;
+    padding: 40px 30px 40px 10px;
     position: relative;
     background-color: white;
     border-radius: 5px;
@@ -432,19 +432,20 @@ button {
   position: absolute;
   top: 0;
   left: 90%;
-  margin: 8px;
+  margin: 10px;
   width: 14px;
   height: 14px;
   cursor: pointer;
+  -webkit-transition: fill 0.5s ease-in-out;
+  transition: fill 0.5s ease-in-out;
 }
 
 .modal__close:hover {
-  fill: skyblue;
+  fill: #ff6b08;
 }
 
 @media screen and (min-width: 768px) {
   .modal__close {
-    position: absolute;
     left: 96%;
   }
 }
@@ -465,9 +466,9 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__img {
-    width: 264px;
-    height: 374px;
-    margin-right: 68px;
+    min-width: 264px;
+    min-height: 374px;
+    margin-right: 50px;
     margin-bottom: 60px;
   }
 }
@@ -476,7 +477,7 @@ button {
   .modal__img {
     width: 375px;
     height: 478px;
-    margin-right: 16px;
+    margin-right: 20px;
     margin-bottom: 0;
   }
 }
@@ -532,6 +533,12 @@ button {
   line-height: 115%;
   margin: 0 0 20px 0;
   color: #000000;
+}
+
+@media screen and (min-width: 1280px) {
+  .modal__info-title {
+    width: 350px;
+  }
 }
 
 .discription__modal-item {
@@ -614,15 +621,18 @@ button {
   .about__modal-text {
     position: relative;
     z-index: 100;
-    margin: 0 0 14px 0;
-    height: 200px;
-    overflow: auto;
+    margin: 0;
+    width: 325px;
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .about__modal-text {
-    margin: 0 0 20px 0;
+    width: 350px;
+    height: 150px;
   }
 }
 
@@ -639,7 +649,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__button {
-    margin: 0 0 0 68px;
+    margin: 0 0 75px 50px;
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
@@ -648,7 +658,7 @@ button {
 
 @media screen and (min-width: 1280px) {
   .modal__button {
-    margin: 0;
+    margin: 0 0 100px 0;
   }
 }
 
@@ -666,6 +676,14 @@ button {
   border: 1px solid #000000;
   border-radius: 5px;
   text-transform: uppercase;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal__btn-add:hover {
+  background-color: #fcd1b3;
+  color: #ffffff;
+  border: 1px solid #fcd1b3;
 }
 
 .modal__btn-add:not(:last-child) {
@@ -691,6 +709,12 @@ button {
   border: none;
   background: #FF6B01;
   color: #FFFFFF;
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+.modal__active-btn:hover {
+  background: #fcd1b3;
 }
 
 .movie-list-section {
@@ -956,6 +980,12 @@ button {
   color: #545454;
 }
 
+@media screen and (min-width: 768px) {
+  .footer__footer-text {
+    font-size: 16px;
+  }
+}
+
 @media screen and (max-width: 319px) {
   .footer__footer-text:first-child {
     margin-bottom: 10px;
@@ -1218,7 +1248,7 @@ button {
   .modal__card-content {
     width: 806px;
     height: 558px;
-    padding: 40px 12px;
+    padding: 40px 30px 40px 10px;
     position: relative;
     background-color: white;
     border-radius: 5px;
@@ -1229,19 +1259,20 @@ button {
   position: absolute;
   top: 0;
   left: 90%;
-  margin: 8px;
+  margin: 10px;
   width: 14px;
   height: 14px;
   cursor: pointer;
+  -webkit-transition: fill 0.5s ease-in-out;
+  transition: fill 0.5s ease-in-out;
 }
 
 .modal__close:hover {
-  fill: skyblue;
+  fill: #ff6b08;
 }
 
 @media screen and (min-width: 768px) {
   .modal__close {
-    position: absolute;
     left: 96%;
   }
 }
@@ -1262,9 +1293,9 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__img {
-    width: 264px;
-    height: 374px;
-    margin-right: 68px;
+    min-width: 264px;
+    min-height: 374px;
+    margin-right: 50px;
     margin-bottom: 60px;
   }
 }
@@ -1273,7 +1304,7 @@ button {
   .modal__img {
     width: 375px;
     height: 478px;
-    margin-right: 16px;
+    margin-right: 20px;
     margin-bottom: 0;
   }
 }
@@ -1329,6 +1360,12 @@ button {
   line-height: 115%;
   margin: 0 0 20px 0;
   color: #000000;
+}
+
+@media screen and (min-width: 1280px) {
+  .modal__info-title {
+    width: 350px;
+  }
 }
 
 .discription__modal-item {
@@ -1411,15 +1448,18 @@ button {
   .about__modal-text {
     position: relative;
     z-index: 100;
-    margin: 0 0 14px 0;
-    height: 200px;
-    overflow: auto;
+    margin: 0;
+    width: 325px;
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .about__modal-text {
-    margin: 0 0 20px 0;
+    width: 350px;
+    height: 150px;
   }
 }
 
@@ -1436,7 +1476,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__button {
-    margin: 0 0 0 68px;
+    margin: 0 0 75px 50px;
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
@@ -1445,7 +1485,7 @@ button {
 
 @media screen and (min-width: 1280px) {
   .modal__button {
-    margin: 0;
+    margin: 0 0 100px 0;
   }
 }
 
@@ -1463,6 +1503,14 @@ button {
   border: 1px solid #000000;
   border-radius: 5px;
   text-transform: uppercase;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal__btn-add:hover {
+  background-color: #fcd1b3;
+  color: #ffffff;
+  border: 1px solid #fcd1b3;
 }
 
 .modal__btn-add:not(:last-child) {
@@ -1488,10 +1536,16 @@ button {
   border: none;
   background: #FF6B01;
   color: #FFFFFF;
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+.modal__active-btn:hover {
+  background: #fcd1b3;
 }
 
 .header_libary {
-  max-width: 1280px;
+  max-width: 100vw;
   min-height: 216px;
   margin-left: auto;
   margin-right: auto;
@@ -1747,5 +1801,22 @@ button {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.library__placeholder-img {
+  margin-top: 100px;
+}
+
+.placeholder {
+  display: none;
+  position: relative;
+}
+
+.library__placeholder-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 50px;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
