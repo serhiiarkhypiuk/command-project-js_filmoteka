@@ -29,7 +29,7 @@ export default class TopMovies {
         return response.json();
       })
       .then(geners => {
-        return geners;
+        localStorage.setItem('genres', JSON.stringify(geners.genres));
       });
   }
   async searchMovieByKeyword(str) {

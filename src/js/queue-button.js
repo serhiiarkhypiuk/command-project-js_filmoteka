@@ -19,17 +19,15 @@ function onWatchedBtnClick() {
   onWatchedMarkup();
 }
 function onWatchedMarkup() {
-  topMoviesList.fetchGenr().then(genre => {
-    if (filmsFromLocalStorage) {
-      topMoviesMarkUp(filmsFromLocalStorage, genre.genres);
-    }
-  });
+  if (filmsFromLocalStorage) {
+    topMoviesMarkUp(filmsFromLocalStorage);
+  }
 }
 
-function topMoviesMarkUp(movies, genres) {
+function topMoviesMarkUp(movies) {
   refs.list.innerHTML = movies
     .map(movie => {
-      let movie_g = getGenrs(genres);
+      let movie_g = getGenrs(JSON.parse(localStorage.getItem('genres')));
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
