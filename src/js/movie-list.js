@@ -14,9 +14,7 @@ refs.pagination.addEventListener('click', changePage);
 function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
-    console.log(movies);
     topList.fetchGenr().then(generlist => {
-      console.log(generlist.genres);
       topMoviesMarkUp(movies.results, generlist.genres);
     });
   });
