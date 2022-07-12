@@ -20,12 +20,16 @@ function getMovies() {
 }
 
 function topMoviesMarkUp(movies) {
-  refs.list.innerHTML = movies
+  console.log(movies);
+  refs.list.innerHTML = [...movies]
     .map(movie => {
-      let movie_g = getGenrs(
-        movie.genre_ids,
-        JSON.parse(localStorage.getItem('genres'))
-      );
+      let movie_g = [];
+      if (movie.genre_ids) {
+        movie_g = getGenrs(
+          movie.genre_ids,
+          JSON.parse(localStorage.getItem('genres'))
+        );
+      }
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
@@ -40,7 +44,9 @@ function topMoviesMarkUp(movies) {
               ', '
             )} <span class="stick">|</span> 
                 <span class="movie__year">${(
-                  movie.release_date || movie.first_air_date
+                  movie.release_date ||
+                  movie.first_air_date ||
+                  ''
                 ).slice(0, 4)}</span></p>
         </div>
     </a>

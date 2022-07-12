@@ -61,11 +61,11 @@ export default class TopMovies {
     this.page -= 1;
   }
   lastPage() {
-    this.page = 20;
+    this.page = 1000; // due to the API limits
   }
   preElip() {
-    if (this.page > 18) {
-      this.page = 15;
+    if (this.page > 998) {
+      this.page = 995;
     } else {
       this.page -= 3;
     }
