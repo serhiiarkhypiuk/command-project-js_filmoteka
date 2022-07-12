@@ -20,7 +20,6 @@ function getMovies() {
 }
 
 function topMoviesMarkUp(movies) {
-  console.log(movies);
   refs.list.innerHTML = [...movies]
     .map(movie => {
       let movie_g = [];
