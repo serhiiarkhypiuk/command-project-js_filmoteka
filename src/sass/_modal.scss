@@ -110,6 +110,11 @@
 }
 
 .modal__img {
+    background-image: url(../images/filmtape.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        min-width: 240px;
     display: block;
     margin-bottom: 20px;
     object-fit: cover;
