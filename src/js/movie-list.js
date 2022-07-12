@@ -27,21 +27,19 @@ function topMoviesMarkUp(movies, genres) {
       if (movie_g.length > 2) {
         movie_g = [movie_g[0], movie_g[1], 'Other'];
       }
-
       return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='https://image.tmdb.org/t/p/original${
           movie.poster_path
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
-            <h2 class="movie__title">${movie.title}</h2>
+            <h2 class="movie__title">${movie.title || movie.name}</h2>
             <p class="movie__genre">${movie_g.join(
               ', '
             )} <span class="stick">|</span> 
-                <span class="movie__year">${movie.release_date.slice(
-                  0,
-                  4
-                )}</span></p>
+                <span class="movie__year">${(
+                  movie.release_date || movie.first_air_date
+                ).slice(0, 4)}</span></p>
         </div>
     </a>
 </li>`;
@@ -50,10 +48,13 @@ function topMoviesMarkUp(movies, genres) {
 }
 function getGenrs(genresID, genres) {
   return genresID.map(id => {
-    return genres.find(genre => genre.id === id).name;
+    if (genres.find(genre => genre.id === id)) {
+      return genres.find(genre => genre.id === id).name;
+    } else {
+      return 'Self made';
+    }
   });
 }
-
 function changePage(event) {
   if (event.target === refs.pagination) {
     return;

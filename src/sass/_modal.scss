@@ -72,7 +72,7 @@
         
         width: 806px;
         height: 558px;
-        padding: 40px 12px;
+        padding: 40px 30px 40px 10px;
         position: relative;
         background-color: white;
         border-radius: 5px;
@@ -85,19 +85,15 @@
         position: absolute;
         top: 0;
         left: 90%;
-        margin: 8px;
+        margin: 10px;
         width: 14px;
         height: 14px;
         cursor: pointer;
-        
+        transition: fill 0.5s ease-in-out;
             &:hover {
-                fill: skyblue;
+                fill: $orange-color;
             }
-
- 
-
         @include tab {
-        position: absolute;
         left: 96%;
         
       
@@ -119,9 +115,9 @@
     margin-bottom: 20px;
     object-fit: cover;
     @include tab {
-        width: 264px;
-        height: 374px;
-        margin-right: 68px;
+        min-width: 264px;
+        min-height: 374px;
+        margin-right: 50px;
         margin-bottom: 60px;
         
         
@@ -130,7 +126,7 @@
     @include desk {
         width: 375px;
         height: 478px;
-        margin-right: 16px;
+        margin-right: 20px;
         margin-bottom: 0;
     }
 }
@@ -172,6 +168,11 @@
     line-height:115%;
     margin: 0 0 20px 0;
     color: #000000;
+    @include desk {
+    
+            width: 350px;
+    
+        }
   
 
 }
@@ -238,6 +239,7 @@
     font-style: $font-style;
     line-height: $line-height;
     color:$black-text-color;
+   
     
 }
 
@@ -253,14 +255,18 @@
     @include tab {
         position: relative;
         z-index: 100;
-        margin: 0 0 14px 0;
-        height: 200px;
-        overflow: auto;
+        margin: 0;
+        width: 325px;
+        height: 150px;
+        overflow-y: auto;
+        overflow-x: hidden;
        
     }
 
    @include desk {
-       margin: 0 0 20px 0;
+     
+       width: 350px;
+       height: 150px;
    }
     
 }
@@ -271,12 +277,13 @@
     justify-content: flex-start;
     margin-top: 20px;
     @include tab {
-        margin: 0 0 0 68px;
+        margin: 0 0 75px 50px;
         align-items: flex-end;
        
     }
     @include desk{
-        margin:0;
+        
+        margin: 0 0 100px 0;
     }
     
 
@@ -296,6 +303,12 @@
     border: 1px solid $black-text-color;
     border-radius: 5px;
     text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        background-color: #fcd1b3;
+        color: #ffffff;
+        border: 1px solid #fcd1b3;
+    }
         &:not(:last-child) {
             margin-right: 20px;
         }
@@ -316,4 +329,9 @@
         border: none;
         background: #FF6B01;
         color: #FFFFFF;
+        transition: background 0.5s ease-in-out;
+        &:hover{
+            background: #fcd1b3;
+            
+        }
 }

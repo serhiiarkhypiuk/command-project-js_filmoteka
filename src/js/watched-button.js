@@ -60,4 +60,9 @@ function getGenrs(genres) {
   return genres.map(genre => {
     return genre.name;
   });
+};
+
+if (!localStorage.getItem('watched')) {
+  const placeholder = document.querySelector('.placeholder');
+  placeholder.style.display = 'block';
 }
