@@ -6,15 +6,25 @@ const refs = {
   list: document.querySelector('.movie-collection'),
   formEl: document.querySelector('#search-form'),
   inputEl: document.querySelector('.search__input'),
+  pagination: document.querySelector('#tui-pagination-container'),
 };
 
 refs.formEl.addEventListener('submit', moviesByKeyword);
 
+let keyword = null;
+
 function moviesByKeyword(e) {
   e.preventDefault();
+  movies.resetPage();
+  window.pagination.movePageTo(movies.page);
+  refs.pagination.addEventListener('click', changePage);
   removeErrorMessage();
-  const keyword = e.target.elements.search.value.trim();
+  movies.keyword = e.target.elements.search.value.trim();
 
+  fetchMoviesByKeyword();
+}
+
+function fetchMoviesByKeyword() {
   movies.searchMovieByKeyword(keyword).then(moviesList => {
     if (moviesList.results.length === 0) {
       showErrorMessage();
@@ -48,7 +58,7 @@ function moviesByKeywordMarkUp(movies, genres) {
 
       return `<li class="movies__item" data-id=${movie.id}>
     <a href="" class="movies__link">
-        <img src='https://image.tmdb.org/t/p/original${
+        <img src='https://image.tmdb.org/t/p/original/${
           movie.poster_path
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
@@ -99,5 +109,54 @@ function removeErrorMessage() {
   const errorEl = document.querySelector('.search__error-message');
   if (errorEl && errorEl.classList.contains('active')) {
     errorEl.classList.remove('active');
+  }
+}
+
+function changePage(event) {
+  if (event.target === refs.pagination) {
+    return;
+  }
+  if (event.target.classList.contains('tui-ico-first')) {
+    movies.resetPage();
+    fetchMoviesByKeyword();
+  }
+  if (event.target.classList.contains('tui-ico-last')) {
+    movies.lastPage();
+    fetchMoviesByKeyword();
+  }
+  if (
+    event.target.classList.contains('tui-page-btn') &&
+    !event.target.classList.contains('tui-next-is-ellip') &&
+    !event.target.classList.contains('tui-prev-is-ellip')
+  ) {
+    movies.cengePage(Number(event.target.textContent));
+    fetchMoviesByKeyword();
+  }
+  if (event.target.classList.contains('tui-ico-next')) {
+    movies.nextPage();
+    fetchMoviesByKeyword();
+  }
+  if (event.target.classList.contains('tui-ico-prev')) {
+    movies.prePage();
+    fetchMoviesByKeyword();
+  }
+  if (event.target.classList.contains('tui-next-is-ellip')) {
+    movies.nextElip();
+    fetchMoviesByKeyword();
+  }
+  if (event.target.classList.contains('tui-prev-is-ellip')) {
+    movies.preElip();
+    fetchMoviesByKeyword();
+  }
+
+  if (event.target.classList.contains('tui-ico-ellip')) {
+    if (event.target.parentElement.classList.contains('tui-next-is-ellip')) {
+      movies.nextElip();
+      fetchMoviesByKeyword();
+    }
+    if (event.target.parentElement.classList.contains('tui-prev-is-ellip')) {
+      movies.preElip();
+      fetchMoviesByKeyword();
+    }
   }
 }

@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 export default class TopMovies {
   constructor() {
     this.page = 1;
+    this.keyWord = '';
   }
   async fetchMovies() {
     try {
@@ -32,9 +33,9 @@ export default class TopMovies {
         localStorage.setItem('genres', JSON.stringify(geners.genres));
       });
   }
-  async searchMovieByKeyword(str) {
+  async searchMovieByKeyword() {
     return await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=1&query=${str}`
+      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=1&query=${this.keyword}&page=${this.page}`
     )
       .then(response => {
         if (!response.ok) {
@@ -76,5 +77,13 @@ export default class TopMovies {
     } else {
       this.page += 3;
     }
+  }
+
+  get keyword() {
+    return this.keyWord;
+  }
+
+  set keyword(newKeyword) {
+    this.keyWord = newKeyword;
   }
 }
