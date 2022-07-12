@@ -13,6 +13,7 @@ async function showModal(e) {
     const movieId = e.target.closest('.movies__item').dataset.id;
     modalCard.setAttribute('data-id', movieId);
     modalInfo.innerHTML = await fetchMovieDetails(movieId).then(data => {
+      console.log(data);
       const {
         original_title,
         vote_average,
@@ -56,7 +57,6 @@ async function showModal(e) {
             `;
     });
   }
-  closeBtn;
   modalOverlay.classList.add('modal__card-overlay--active');
   modalCard.classList.add('modal__card--active');
   closeBtn.addEventListener('click', closeByBtn);
@@ -114,10 +114,8 @@ async function fetchMovieDetails(id) {
 function checkGenreList(genres) {
   if (genres.length === 0) {
     return '';
-  } else if (genres.length > 2) {
-    return `${genres[0].name}, ${genres[1].name}, Other`;
   } else {
-    return `${[genres.map(genre => genre.name)].join(', ')}`;
+    return `${genres.map(genre => genre.name).join(', ')}`;
   }
 }
 function cleanButtons() {
