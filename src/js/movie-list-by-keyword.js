@@ -1,5 +1,4 @@
 import TopMovies from './work-with-api';
-import debounce from 'lodash.debounce';
 
 const movies = new TopMovies();
 
@@ -9,21 +8,36 @@ const refs = {
   inputEl: document.querySelector('.search__input'),
 };
 
-refs.inputEl.addEventListener('input', debounce(moviesByKeyword, 1200));
+refs.formEl.addEventListener('submit', moviesByKeyword);
 
 function moviesByKeyword(e) {
   e.preventDefault();
   removeErrorMessage();
-  const keyword = e.target.value.trim();
+  const keyword = e.target.elements.search.value.trim();
 
   movies.searchMovieByKeyword(keyword).then(moviesList => {
     if (moviesList.results.length === 0) {
       showErrorMessage();
       return;
     }
-    movies.fetchGenr().then(generlist => {
-      moviesByKeywordMarkUp(moviesList.results, generlist.genres);
-    });
+
+    try {
+      const genresList = JSON.parse(localStorage.getItem('genres'));
+      moviesByKeywordMarkUp(moviesList.results, genresList);
+    } catch (error) {
+      console.log(error.name);
+      console.log(error.message);
+    }
+  });
+}
+
+function getGenrs(genresID, genres) {
+  return genresID.map(id => {
+    if (genres.find(genre => genre.id === id)) {
+      return genres.find(genre => genre.id === id).name;
+    } else {
+      return 'Self made';
+    }
   });
 }
 
