@@ -1,5 +1,5 @@
 import TopMovies from './work-with-api';
-
+import { createPagination } from './pagination';
 const movies = new TopMovies();
 
 const refs = {
@@ -16,7 +16,7 @@ let keyword = null;
 function moviesByKeyword(e) {
   e.preventDefault();
   movies.resetPage();
-  window.pagination.movePageTo(movies.page);
+  pagination.movePageTo(movies.page);
   refs.pagination.addEventListener('click', changePage);
   removeErrorMessage();
   movies.keyword = e.target.elements.search.value.trim();
@@ -30,7 +30,8 @@ function fetchMoviesByKeyword() {
       showErrorMessage();
       return;
     }
-
+    pagination.setTotalItems(moviesList.total_results);
+    movies.endPage = moviesList.total_pages;
     try {
       const genresList = JSON.parse(localStorage.getItem('genres'));
       moviesByKeywordMarkUp(moviesList.results, genresList);

@@ -1,4 +1,5 @@
 import TopMovies from './work-with-api';
+import { createPagination } from './pagination';
 
 const refs = {
   list: document.querySelector('.movie-collection'),
@@ -12,9 +13,11 @@ getMovies();
 
 refs.pagination.addEventListener('click', changePage);
 
-function getMovies() {
+async function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
+    topList.endPage = movies.total_pages;
+    topList.totalItems = movies.total_results;
     topMoviesMarkUp(movies.results);
   });
 }

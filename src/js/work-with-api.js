@@ -4,6 +4,8 @@ export default class TopMovies {
   constructor() {
     this.page = 1;
     this.keyWord = '';
+    this.endPage = 1000;
+    this.totalItems=20000;
   }
   async fetchMovies() {
     try {
@@ -62,11 +64,11 @@ export default class TopMovies {
     this.page -= 1;
   }
   lastPage() {
-    this.page = 1000; // due to the API limits
+    this.page = this.endPage; // due to the API limits
   }
   preElip() {
-    if (this.page > 998) {
-      this.page = 995;
+    if (this.page > this.endPage) {
+      this.page = this.endPage - 5;
     } else {
       this.page -= 3;
     }
