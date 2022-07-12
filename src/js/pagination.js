@@ -1,13 +1,11 @@
 import Pagination from 'tui-pagination';
 
-const ITEMS_PER_PAGE_HOME = 20;
-
 export function createPagination() {
   const options = {
-    itemsPerPage: ITEMS_PER_PAGE_HOME,
+    itemsPerPage: 20,
     visiblePages: 5,
     page: 1,
-    totalItems: 400,
+    totalItems: 20000, // due to the API limits
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
