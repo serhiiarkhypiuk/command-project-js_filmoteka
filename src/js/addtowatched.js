@@ -3,8 +3,8 @@ import TopMovies from './work-with-api.js';
 
 const btnAddToWatch = document.querySelector('.wached');
 const btnAddToQueue = document.querySelector('.queue');
-
 let watchedMovies = [];
+
 
 btnAddToWatch.addEventListener('click', e => {
   const isCardMovie = e.target.closest('.modal__card-content');
@@ -27,10 +27,13 @@ btnAddToWatch.addEventListener('click', e => {
       localStorage.setItem('watched', JSON.stringify(watchedMovies));
     }
   });
-  btnAddToQueue.textContent = 'add to queue';
-  btnAddToWatch.textContent = 'Remove at Watched';
-});
 
+const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+console.log(filmsFromLocalStorage)
+
+  // btnAddToQueue.textContent = 'add to queue';
+  // btnAddToWatch.textContent = 'Remove from Watched';
+});
 async function fetchMovieDetails(id) {
   return await fetch(
     `https://api.themoviedb.org/3//movie/${id}?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US`
@@ -45,3 +48,4 @@ async function fetchMovieDetails(id) {
       return data;
     });
 }
+// localStorage.removeItem('watched')

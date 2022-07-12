@@ -75,9 +75,9 @@
   dependencies:
     "@lezer/common" "^0.15.0"
 
-"@lmdb/lmdb-darwin-arm64@2.5.2":
-  "integrity" "sha512-+F8ioQIUN68B4UFiIBYu0QQvgb9FmlKw2ctQMSBfW2QBrZIxz9vD9jCGqTCPqZBRbPHAS/vG1zSXnKqnS2ch/A=="
-  "resolved" "https://registry.npmjs.org/@lmdb/lmdb-darwin-arm64/-/lmdb-darwin-arm64-2.5.2.tgz"
+"@lmdb/lmdb-linux-x64@2.5.2":
+  "integrity" "sha512-xUdUfwDJLGjOUPH3BuPBt0NlIrR7f/QHKgu3GZIXswMMIihAekj2i97oI0iWG5Bok/b+OBjHPfa8IU9velnP/Q=="
+  "resolved" "https://registry.npmjs.org/@lmdb/lmdb-linux-x64/-/lmdb-linux-x64-2.5.2.tgz"
   "version" "2.5.2"
 
 "@mischnic/json-sourcemap@^0.1.0":
@@ -89,9 +89,9 @@
     "@lezer/lr" "^0.15.4"
     "json5" "^2.2.1"
 
-"@msgpackr-extract/msgpackr-extract-darwin-arm64@2.0.2":
-  "integrity" "sha512-FMX5i7a+ojIguHpWbzh5MCsCouJkwf4z4ejdUY/fsgB9Vkdak4ZnoIEskOyOUMMB4lctiZFGszFQJXUeFL8tRg=="
-  "resolved" "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-2.0.2.tgz"
+"@msgpackr-extract/msgpackr-extract-linux-x64@2.0.2":
+  "integrity" "sha512-zrBHaePwcv4cQXxzYgNj0+A8I1uVN97E7/3LmkRocYZ+rMwUsnPpp4RuTAHSRoKlTQV3nSdCQW4Qdt4MXw/iHw=="
+  "resolved" "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-2.0.2.tgz"
   "version" "2.0.2"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -216,9 +216,14 @@
     "nullthrows" "^1.1.1"
     "semver" "^5.7.1"
 
-"@parcel/css-darwin-arm64@1.10.1":
-  "integrity" "sha512-0ukr4/hSrM24ef8bcZ5b/o8iJrPVAxXOKCPGpmKFd+R/31SYjvFfMJzS2XAYUy0W0FunMW2fte3iTPNMDigyww=="
-  "resolved" "https://registry.npmjs.org/@parcel/css-darwin-arm64/-/css-darwin-arm64-1.10.1.tgz"
+"@parcel/css-linux-x64-gnu@1.10.1":
+  "integrity" "sha512-gBaHgMXom1lCGu/ummD1wqknxF9ZKFBUlxQ/0DtCdOtZlRBEKeWtoskK9tgH4YMnwTpMIagCwWB4UbP/9Yzz6A=="
+  "resolved" "https://registry.npmjs.org/@parcel/css-linux-x64-gnu/-/css-linux-x64-gnu-1.10.1.tgz"
+  "version" "1.10.1"
+
+"@parcel/css-linux-x64-musl@1.10.1":
+  "integrity" "sha512-arjLARo/3l0uwPf5qYxCkrS0FTE8n6JH/S1/7DitvhG22fsZdJTGPwe4MYLTIn4s3QXLOVVRrkPDZlUPM1yjFA=="
+  "resolved" "https://registry.npmjs.org/@parcel/css-linux-x64-musl/-/css-linux-x64-musl-1.10.1.tgz"
   "version" "1.10.1"
 
 "@parcel/css@^1.10.1":
@@ -1053,11 +1058,6 @@
   "version" "7.0.1"
   dependencies:
     "to-regex-range" "^5.0.1"
-
-"fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "get-port@^4.2.0":
   "integrity" "sha512-/b3jarXkH8KJoOMQc3uVGHASwGLPq3gSFJ7tgJm2diza+bydJPTGOibin2steecKeOylE8oY2JERlVWkAJO6yw=="
