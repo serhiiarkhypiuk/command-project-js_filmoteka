@@ -1,21 +1,18 @@
-.movie-list-section{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
-    @include tab {
-        padding-top: 60px;
-        padding-bottom: 60px;
+.movie-list-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
 
-    }
+  @include tab {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
-.movie-collection{
-    
-    @include tab{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: start;
-        margin: -16px;
-    }
-        
+.movie-collection {
+  @include tab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: -16px;
+  }
 }
