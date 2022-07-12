@@ -11,17 +11,19 @@ const topMoviesList = new TopMovies();
 refs.queueBtn.addEventListener('click', onWatchedBtnClick);
 
 function onWatchedBtnClick() {
-  
   refs.watchedBtn.classList.remove('header-active-button');
   refs.queueBtn.classList.add('header-active-button');
   onWatchedMarkup();
 }
 function onWatchedMarkup() {
-    const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
+  const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
   if (filmsFromLocalStorage) {
     topMoviesMarkUp(filmsFromLocalStorage);
+  } else {
+    const placeholder = document.querySelector('.placeholder');
+    placeholder.style.display = 'block';
+    refs.list.innerHTML = '';
   }
-
 }
 
 function topMoviesMarkUp(movies) {
@@ -50,7 +52,7 @@ function topMoviesMarkUp(movies) {
 </li>`;
     })
     .join('');
-  
+
   const placeholder = document.querySelector('.placeholder');
   if (isLocalStorageItemEmpty('queue')) {
     placeholder.style.display = 'block';
@@ -75,6 +77,8 @@ function getGenrs(genres) {
 
 //Rerender after delete movie
 const btnAddToQueue = document.querySelector('.queue');
-btnAddToQueue.addEventListener('click', (e) => {
+btnAddToQueue.addEventListener('click', e => {
+  refs.watchedBtn.classList.remove('header-active-button');
+  refs.queueBtn.classList.add('header-active-button');
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });

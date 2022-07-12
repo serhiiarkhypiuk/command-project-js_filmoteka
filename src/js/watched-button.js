@@ -10,7 +10,6 @@ const refs = {
 
 const topMoviesList = new TopMovies();
 
-
 onWatchedMarkup();
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
@@ -22,11 +21,14 @@ function onWatchedBtnClick() {
 }
 
 function onWatchedMarkup() {
-    const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
+  const filmsFromLocalStorage = JSON.parse(localStorage.getItem('watched'));
   if (filmsFromLocalStorage) {
     topMoviesMarkUp(filmsFromLocalStorage);
+  } else {
+    const placeholder = document.querySelector('.placeholder');
+    placeholder.style.display = 'block';
+    refs.list.innerHTML = '';
   }
-
 }
 
 function topMoviesMarkUp(movies) {
@@ -55,7 +57,7 @@ function topMoviesMarkUp(movies) {
 </li>`;
     })
     .join('');
-  
+
   const placeholder = document.querySelector('.placeholder');
   if (isLocalStorageItemEmpty('watched')) {
     placeholder.style.display = 'block';
@@ -80,6 +82,6 @@ function isLocalStorageItemEmpty(localStorageKey) {
 
 //Rerender after delete movie
 const btnAddToWatch = document.querySelector('.wached');
-btnAddToWatch.addEventListener('click', (e) => {
+btnAddToWatch.addEventListener('click', e => {
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });
