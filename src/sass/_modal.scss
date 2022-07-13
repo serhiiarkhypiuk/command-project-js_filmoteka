@@ -83,11 +83,18 @@
 .modal__close-btn{
         position: absolute;
         border: none;
+        cursor: pointer;
         background-color: inherit;
+        //color: #000000;
         top: 10px;
         left: 85%;
         width: 36px;
         height: 18px;
+        transition: color 0.5s ease-in-out;
+
+        &:hover,&:focus{
+            color:#FF6B01;
+        }
         @include tab {
             left: 94%;
             }
@@ -95,11 +102,7 @@
 }
 
 .modal__close {
-        cursor: pointer;
-        transition: fill 0.5s ease-in-out;
-            &:hover {
-                fill: $orange-color;
-            }
+    fill: currentColor;
        
 }
 
