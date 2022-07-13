@@ -35,6 +35,7 @@ function fetchMoviesByKeyword() {
     movies.endPage = moviesList.total_pages;
     try {
       const genresList = JSON.parse(localStorage.getItem('genres'));
+      savePageMoviesInLocalStorage(moviesList.results);
       moviesByKeywordMarkUp(moviesList.results, genresList);
     } catch (error) {
       console.log(error.name);
@@ -167,4 +168,7 @@ function checkImgLink(data) {
     return `https://image.tmdb.org/t/p/original/${data}`;
   }
   return `https://bflix.biz/no-poster.png`;
+}
+function savePageMoviesInLocalStorage(pageMovies) {
+  localStorage.setItem('pageMovies', JSON.stringify(pageMovies));
 }

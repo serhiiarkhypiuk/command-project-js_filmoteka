@@ -45,17 +45,20 @@ function topMoviesMarkUp(movies) {
       }
       return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
-        <img src='https://image.tmdb.org/t/p/original${movie.poster_path
-        }' class="movie__image" alt="Movie">
+        <img src='${checkImgLink(
+          movie.poster_path
+        )}' class="movie__image" alt="Movie">
         <div class="movie__text-part">
-            <h2 class="movie__title">${movie.title}</h2>
-            <p class="movie__genre">${movie_g.join(
-          ', '
-        )} <span class="stick">|</span> 
-                <span class="movie__year">${movie.release_date.slice(
-          0,
-          4
-        )}</span></p>
+            <h2 class="movie__title">${movie.title || movie.name}</h2>
+            <p class="movie__genre">${
+              movie_g.join(', ') || 'No data'
+            } <span class="stick">|</span> 
+                <span class="movie__year">${
+                  (movie.release_date || movie.first_air_date || '').slice(
+                    0,
+                    4
+                  ) || 'No data'
+                }</span></p>
         </div>
     </a>
 </li>`;
@@ -68,9 +71,6 @@ function topMoviesMarkUp(movies) {
   } else {
     placeholder.style.display = 'none';
   }
-
-  //Make footer sticky
-  makeFooterBottom();
 }
 
 function getGenrs(genres) {
@@ -93,34 +93,16 @@ btnAddToWatch.addEventListener('click', e => {
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });
 
-//Make footer down if window size changed
-window.addEventListener('resize', function (event) {
-  makeFooterBottom();
-});
-
-function makeFooterBottom() {
-  const offsetHeight = document.querySelector('body').offsetHeight;
-  const screenHeight = screen.height;
-
-  const footer = document.querySelector("footer");
-
-  if (offsetHeight < screenHeight) {
-    //We should make footer sticky
-    footer.style.position = "fixed";
-    footer.style.bottom = "0";
-    footer.style.left = "0";
-    footer.style.right = "0";
-  } else {
-    //Footer it's ok, shouldn't fix it
-    footer.style.position = "";
-    footer.style.bottom = "";
-    footer.style.left = "";
-    footer.style.right = "";
-  }
-}
-
 function getActiveTab() {
   const watchedButton = document.querySelector('.header_btn-watched');
 
-  return watchedButton.classList.contains('header-active-button') ? "watched" : "queue";
+  return watchedButton.classList.contains('header-active-button')
+    ? 'watched'
+    : 'queue';
+}
+function checkImgLink(data) {
+  if (data) {
+    return `https://image.tmdb.org/t/p/original/${data}`;
+  }
+  return `https://bflix.biz/no-poster.png`;
 }

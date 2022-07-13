@@ -25,13 +25,11 @@ btnAddToQueue.addEventListener('click', e => {
     queueMovies.push(movie);
     localStorage.setItem('queue', JSON.stringify(queueMovies));
     btnAddToQueue.textContent = 'remove from queue';
-
   } else {
     removeFromQueue(movie.id);
     btnAddToQueue.textContent = 'add to queue';
   }
 });
-
 
 function removeFromQueue(id) {
   const films = JSON.parse(localStorage.getItem('queue'));
