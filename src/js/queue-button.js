@@ -16,7 +16,14 @@ function onWatchedBtnClick() {
   onWatchedMarkup();
 }
 function onWatchedMarkup() {
+  console.log(getActiveTab());
+
+  if (getActiveTab() !== 'queue') {
+    return;
+  }
+
   const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
+
   if (filmsFromLocalStorage) {
     topMoviesMarkUp(filmsFromLocalStorage);
   } else {
@@ -78,7 +85,13 @@ function getGenrs(genres) {
 //Rerender after delete movie
 const btnAddToQueue = document.querySelector('.queue');
 btnAddToQueue.addEventListener('click', e => {
-  refs.watchedBtn.classList.remove('header-active-button');
-  refs.queueBtn.classList.add('header-active-button');
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });
+
+function getActiveTab() {
+  const watchedButton = document.querySelector('.header_btn-watched');
+
+  return watchedButton.classList.contains('header-active-button')
+    ? 'watched'
+    : 'queue';
+}

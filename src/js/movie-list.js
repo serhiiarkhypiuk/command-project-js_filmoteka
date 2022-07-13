@@ -1,6 +1,7 @@
 import TopMovies from './work-with-api';
 import { createPagination } from './pagination';
 
+
 const refs = {
   list: document.querySelector('.movie-collection'),
   pagination: document.querySelector('#tui-pagination-container'),
@@ -20,6 +21,8 @@ refs.form.addEventListener('submit', () => {
 async function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
+    savePageMoviesInLocalStorage(movies.results);
+
     topList.endPage = movies.total_pages;
     topMoviesMarkUp(movies.results);
   });
@@ -41,19 +44,17 @@ function topMoviesMarkUp(movies) {
       return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
         <img src='${checkImgLink(
-          movie.poster_path
-        )}' class="movie__image" alt="Movie">
+        movie.poster_path
+      )}' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title || movie.name}</h2>
-            <p class="movie__genre">${
-              movie_g.join(', ') || 'No data'
-            } <span class="stick">|</span> 
-                <span class="movie__year">${
-                  (movie.release_date || movie.first_air_date || '').slice(
-                    0,
-                    4
-                  ) || 'No data'
-                }</span></p>
+            <p class="movie__genre">${movie_g.join(', ') || 'No data'
+        } <span class="stick">|</span> 
+                <span class="movie__year">${(movie.release_date || movie.first_air_date || '').slice(
+          0,
+          4
+        ) || 'No data'
+        }</span></p>
         </div>
     </a>
 </li>`;
@@ -118,9 +119,16 @@ function changePage(event) {
   }
 }
 
+
+
+function savePageMoviesInLocalStorage(pageMovies) {
+  localStorage.setItem('pageMovies', JSON.stringify(pageMovies));
+};
+
 function checkImgLink(data) {
   if (data) {
     return `https://image.tmdb.org/t/p/original/${data}`;
   }
   return `https://bflix.biz/no-poster.png`;
 }
+
