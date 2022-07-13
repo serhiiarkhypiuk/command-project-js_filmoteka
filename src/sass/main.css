@@ -405,12 +405,9 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__card-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     width: 704px;
-    height: 552px;
-    padding: 40px 72px 40px 36px;
+    height: 500px;
+    padding: 40px 72px 30px 36px;
     position: relative;
     background-color: white;
     border-radius: 5px;
@@ -430,9 +427,8 @@ button {
 
 .modal__close {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 90%;
-  margin: 10px;
   width: 14px;
   height: 14px;
   cursor: pointer;
@@ -458,6 +454,11 @@ button {
 }
 
 .modal__img {
+  background-image: url(../images/filmtape.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  width: 240px;
   display: block;
   margin-bottom: 20px;
   -o-object-fit: cover;
@@ -466,10 +467,10 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__img {
-    min-width: 264px;
-    min-height: 374px;
+    margin-bottom: 0;
+    width: 264px;
+    height: 374px;
     margin-right: 50px;
-    margin-bottom: 60px;
   }
 }
 
@@ -478,7 +479,6 @@ button {
     width: 375px;
     height: 478px;
     margin-right: 20px;
-    margin-bottom: 0;
   }
 }
 
@@ -492,21 +492,25 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .modal__info {
     width: 391px;
+  }
+}
+
+.modal-movie-film-text {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-movie-film-text {
+    margin-bottom: 20px;
   }
 }
 
@@ -614,16 +618,12 @@ button {
   font-weight: 500;
   color: #000000;
   text-align: justify;
-  margin: 0 0 20px 0;
 }
 
 @media screen and (min-width: 768px) {
   .about__modal-text {
-    position: relative;
-    z-index: 100;
-    margin: 0;
     width: 325px;
-    height: 150px;
+    height: 130px;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -631,8 +631,8 @@ button {
 
 @media screen and (min-width: 1280px) {
   .about__modal-text {
-    width: 350px;
-    height: 150px;
+    width: 400px;
+    height: 200px;
   }
 }
 
@@ -641,24 +641,21 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .modal__button {
-    margin: 0 0 75px 50px;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    position: absolute;
+    bottom: 40px;
+    left: 350px;
+    z-index: 10;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .modal__button {
-    margin: 0 0 100px 0;
+    bottom: 40px;
+    left: 400px;
   }
 }
 
@@ -967,8 +964,28 @@ button {
   margin-left: 8px;
 }
 
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .footer-container {
   padding: 30px 0 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  background-color: #f7f7f7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .footer__footer-text {
@@ -990,19 +1007,6 @@ button {
   .footer__footer-text:first-child {
     margin-bottom: 10px;
   }
-}
-
-.footer-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 100%;
-  background-color: #f7f7f7;
 }
 
 .footer__heart-icon {
@@ -1232,12 +1236,9 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__card-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     width: 704px;
-    height: 552px;
-    padding: 40px 72px 40px 36px;
+    height: 500px;
+    padding: 40px 72px 30px 36px;
     position: relative;
     background-color: white;
     border-radius: 5px;
@@ -1257,9 +1258,8 @@ button {
 
 .modal__close {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 90%;
-  margin: 10px;
   width: 14px;
   height: 14px;
   cursor: pointer;
@@ -1285,6 +1285,11 @@ button {
 }
 
 .modal__img {
+  background-image: url(../images/filmtape.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  width: 240px;
   display: block;
   margin-bottom: 20px;
   -o-object-fit: cover;
@@ -1293,10 +1298,10 @@ button {
 
 @media screen and (min-width: 768px) {
   .modal__img {
-    min-width: 264px;
-    min-height: 374px;
+    margin-bottom: 0;
+    width: 264px;
+    height: 374px;
     margin-right: 50px;
-    margin-bottom: 60px;
   }
 }
 
@@ -1305,7 +1310,6 @@ button {
     width: 375px;
     height: 478px;
     margin-right: 20px;
-    margin-bottom: 0;
   }
 }
 
@@ -1319,21 +1323,25 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .modal__info {
     width: 391px;
+  }
+}
+
+.modal-movie-film-text {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-movie-film-text {
+    margin-bottom: 20px;
   }
 }
 
@@ -1441,16 +1449,12 @@ button {
   font-weight: 500;
   color: #000000;
   text-align: justify;
-  margin: 0 0 20px 0;
 }
 
 @media screen and (min-width: 768px) {
   .about__modal-text {
-    position: relative;
-    z-index: 100;
-    margin: 0;
     width: 325px;
-    height: 150px;
+    height: 130px;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -1458,8 +1462,8 @@ button {
 
 @media screen and (min-width: 1280px) {
   .about__modal-text {
-    width: 350px;
-    height: 150px;
+    width: 400px;
+    height: 200px;
   }
 }
 
@@ -1468,24 +1472,21 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .modal__button {
-    margin: 0 0 75px 50px;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    position: absolute;
+    bottom: 40px;
+    left: 350px;
+    z-index: 10;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .modal__button {
-    margin: 0 0 100px 0;
+    bottom: 40px;
+    left: 400px;
   }
 }
 
@@ -1803,13 +1804,26 @@ button {
   }
 }
 
-.library__placeholder-img {
-  margin-top: 100px;
-}
-
 .placeholder {
   display: none;
   position: relative;
+  height: 100vw;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 320px) {
+  .placeholder {
+    background-image: url(../images/mobile-placeholder.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .placeholder {
+    background-size: contain;
+  }
 }
 
 .library__placeholder-text {
@@ -1818,5 +1832,42 @@ button {
   left: 10%;
   font-size: 50px;
   color: white;
+  text-align: center;
+}
+
+@media screen and (min-width: 320px) {
+  .library__placeholder-text {
+    font-size: 20px;
+    width: 200px;
+    left: 20%;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .library__placeholder-text {
+    top: 30%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .library__placeholder-text {
+    background-size: contain;
+    font-size: 50px;
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .library__placeholder-text {
+    background-size: contain;
+    width: 700px;
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .library__placeholder-text {
+    left: 20%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
