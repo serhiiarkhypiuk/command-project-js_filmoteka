@@ -1,4 +1,4 @@
-import { json } from 'stream/consumers';
+// import { json } from 'stream/consumers';
 import TopMovies from './work-with-api.js';
 
 const refs = {
