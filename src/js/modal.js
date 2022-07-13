@@ -1,11 +1,12 @@
 const btns = document.querySelector('.movie-collection');
 const modalOverlay = document.querySelector('.modal__card-overlay');
 const modalCard = document.querySelector('.modal__card-content');
-const closeBtn = document.querySelector('.modal__close');
+const closeBtn = document.querySelector('.modal__close-btn');
 const modalInfo = modalCard.querySelector('.modal__info');
 const btnAddToWatch = document.querySelector('.wached');
 const btnAddToQueue = document.querySelector('.queue');
 
+console.log(closeBtn);
 btns.addEventListener('click', showModal);
 
 async function showModal(e) {
@@ -79,13 +80,16 @@ function closeByOverlay(e) {
   }
 }
 
+
 function closeByBtn(e) {
-  if (e.target === closeBtn) {
+   e.preventDefault();
     closeBtn.removeEventListener('click', closeByBtn);
     modalOverlay.classList.remove('modal__card-overlay--active');
     modalCard.classList.remove('modal__card--active');
+    
+    
     // cleanButtons();
-  }
+  
 }
 
 function closeByWindow(e) {
