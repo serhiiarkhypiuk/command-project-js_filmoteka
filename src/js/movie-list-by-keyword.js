@@ -80,7 +80,7 @@ function moviesByKeywordMarkUp(movies, genres) {
 
 function checkGenreList(genres) {
   if (genres.length === 0) {
-    return '';
+    return 'No data';
   } else if (genres.length > 2) {
     return `${genres[0]}, ${genres[1]}, Other`;
   } else {
@@ -92,7 +92,7 @@ function checkReleaseDate(date) {
   if (date) {
     return date.slice(0, 4);
   } else {
-    return '';
+    return 'No data';
   }
 }
 

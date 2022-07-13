@@ -25,7 +25,9 @@ async function showModal(e) {
         id,
       } = data;
       return `
-                <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title} " class="modal__img" />
+                <img src="${checkImgLink(
+                  poster_path
+                )}" alt="${original_title} " class="modal__img" />
                 <div class="modal-movie-film-text">
                 <h2 class="modal__info-title">${original_title.toUpperCase()}</h2>
                 <ul class="discription__modal id=${id}">
@@ -63,6 +65,13 @@ async function showModal(e) {
   closeBtn.addEventListener('click', closeByBtn);
   modalOverlay.addEventListener('click', closeByOverlay);
   window.addEventListener('keydown', closeByWindow);
+}
+
+function checkImgLink(data) {
+  if (data) {
+    return `https://image.tmdb.org/t/p/original/${data}`;
+  }
+  return `https://bflix.biz/no-poster.png`;
 }
 
 // let path = e.currentTarget.getAttribute('data-path');

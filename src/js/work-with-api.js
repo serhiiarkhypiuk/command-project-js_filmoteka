@@ -5,7 +5,7 @@ export default class TopMovies {
     this.page = 1;
     this.keyWord = '';
     this.endPage = 1000;
-    this.totalItems=20000;
+    this.totalItems = 20000;
   }
   async fetchMovies() {
     try {
@@ -37,7 +37,7 @@ export default class TopMovies {
   }
   async searchMovieByKeyword() {
     return await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&page=1&query=${this.keyword}&page=${this.page}`
+      `https://api.themoviedb.org/3/search/movie?api_key=7fea517bd5b294dd7a1b57e94e2c1c68&language=en-US&query=${this.keyword}&page=${this.page}`
     )
       .then(response => {
         if (!response.ok) {
