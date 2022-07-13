@@ -45,14 +45,15 @@ function topMoviesMarkUp(movies) {
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title || movie.name}</h2>
-            <p class="movie__genre">${movie_g.join(
-              ', '
-            )} <span class="stick">|</span> 
-                <span class="movie__year">${(
-                  movie.release_date ||
-                  movie.first_air_date ||
-                  ''
-                ).slice(0, 4)}</span></p>
+            <p class="movie__genre">${
+              movie_g.join(', ') || 'No data'
+            } <span class="stick">|</span> 
+                <span class="movie__year">${
+                  (movie.release_date || movie.first_air_date || '').slice(
+                    0,
+                    4
+                  ) || 'No data'
+                }</span></p>
         </div>
     </a>
 </li>`;
