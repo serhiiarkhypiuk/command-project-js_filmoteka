@@ -1,6 +1,7 @@
 import TopMovies from './work-with-api';
 import { createPagination } from './pagination';
 
+
 const refs = {
   list: document.querySelector('.movie-collection'),
   pagination: document.querySelector('#tui-pagination-container'),
@@ -20,6 +21,8 @@ refs.form.addEventListener('submit', () => {
 async function getMovies() {
   refs.list.innerHTML = '<div class="loader"></div>';
   topList.fetchMovies().then(movies => {
+    savePageMoviesInLocalStorage(movies.results);
+
     topList.endPage = movies.total_pages;
     topMoviesMarkUp(movies.results);
   });
@@ -116,3 +119,8 @@ function changePage(event) {
     }
   }
 }
+
+
+function savePageMoviesInLocalStorage(pageMovies) {
+  localStorage.setItem('pageMovies', JSON.stringify(pageMovies));
+};

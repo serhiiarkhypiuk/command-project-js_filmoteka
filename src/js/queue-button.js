@@ -16,7 +16,14 @@ function onWatchedBtnClick() {
   onWatchedMarkup();
 }
 function onWatchedMarkup() {
+  console.log(getActiveTab());
+
+  if (getActiveTab() !== 'queue') {
+    return;
+  }
+
   const filmsFromLocalStorage = JSON.parse(localStorage.getItem('queue'));
+
   if (filmsFromLocalStorage) {
     topMoviesMarkUp(filmsFromLocalStorage);
   } else {
@@ -35,18 +42,17 @@ function topMoviesMarkUp(movies) {
       }
       return `<li class="movies__item" id="${movie.id}" data-id=${movie.id}>
     <a href="" class="movies__link">
-        <img src='https://image.tmdb.org/t/p/original${
-          movie.poster_path
+        <img src='https://image.tmdb.org/t/p/original${movie.poster_path
         }' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title}</h2>
             <p class="movie__genre">${movie_g.join(
-              ', '
-            )} <span class="stick">|</span> 
+          ', '
+        )} <span class="stick">|</span> 
                 <span class="movie__year">${movie.release_date.slice(
-                  0,
-                  4
-                )}</span></p>
+          0,
+          4
+        )}</span></p>
         </div>
     </a>
 </li>`;
@@ -81,18 +87,16 @@ function getGenrs(genres) {
 //Rerender after delete movie
 const btnAddToQueue = document.querySelector('.queue');
 btnAddToQueue.addEventListener('click', e => {
-  refs.watchedBtn.classList.remove('header-active-button');
-  refs.queueBtn.classList.add('header-active-button');
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });
 
 //Make footer down if window size changed
-window.addEventListener('resize', function(event){
+window.addEventListener('resize', function (event) {
   makeFooterBottom();
 });
 
 function makeFooterBottom() {
-  const offsetHeight = document.querySelector('body').offsetHeight;   
+  const offsetHeight = document.querySelector('body').offsetHeight;
   const screenHeight = screen.height;
 
   const footer = document.querySelector("footer");
@@ -110,4 +114,10 @@ function makeFooterBottom() {
     footer.style.left = "";
     footer.style.right = "";
   }
+}
+
+function getActiveTab() {
+  const watchedButton = document.querySelector('.header_btn-watched');
+
+  return watchedButton.classList.contains('header-active-button') ? "watched" : "queue";
 }
