@@ -59,6 +59,9 @@ function topMoviesMarkUp(movies) {
   } else {
     placeholder.style.display = 'none';
   }
+
+  //Make footer bottom if needed
+  makeFooterBottom();
 }
 
 function isLocalStorageItemEmpty(localStorageKey) {
@@ -82,3 +85,29 @@ btnAddToQueue.addEventListener('click', e => {
   refs.queueBtn.classList.add('header-active-button');
   setTimeout(() => onWatchedMarkup(), 100); //Dirty hack due to late work with localstorage
 });
+
+//Make footer down if window size changed
+window.addEventListener('resize', function(event){
+  makeFooterBottom();
+});
+
+function makeFooterBottom() {
+  const offsetHeight = document.querySelector('body').offsetHeight;   
+  const screenHeight = screen.height;
+
+  const footer = document.querySelector("footer");
+
+  if (offsetHeight < screenHeight) {
+    //We should make footer sticky
+    footer.style.position = "fixed";
+    footer.style.bottom = "0";
+    footer.style.left = "0";
+    footer.style.right = "0";
+  } else {
+    //Footer it's ok, shouldn't fix it
+    footer.style.position = "";
+    footer.style.bottom = "";
+    footer.style.left = "";
+    footer.style.right = "";
+  }
+}
