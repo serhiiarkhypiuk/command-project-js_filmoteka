@@ -60,9 +60,9 @@ function moviesByKeywordMarkUp(movies, genres) {
 
       return `<li class="movies__item" data-id=${movie.id}>
     <a href="" class="movies__link">
-        <img src='https://image.tmdb.org/t/p/original/${
+        <img src='${checkImgLink(
           movie.poster_path
-        }' class="movie__image" alt="Movie">
+        )}' class="movie__image" alt="Movie">
         <div class="movie__text-part">
             <h2 class="movie__title">${movie.title}</h2>
             <p class="movie__genre">${checkGenreList(
@@ -161,4 +161,10 @@ function changePageName(event) {
       fetchMoviesByKeyword();
     }
   }
+}
+function checkImgLink(data) {
+  if (data) {
+    return `https://image.tmdb.org/t/p/original/${data}`;
+  }
+  return `https://bflix.biz/no-poster.png`;
 }
