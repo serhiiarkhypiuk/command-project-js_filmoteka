@@ -425,32 +425,31 @@ button {
   }
 }
 
-.modal__close {
+.modal__close-btn {
   position: absolute;
-  top: 10px;
-  left: 90%;
-  width: 14px;
-  height: 14px;
+  border: none;
   cursor: pointer;
-  -webkit-transition: fill 0.5s ease-in-out;
-  transition: fill 0.5s ease-in-out;
+  background-color: inherit;
+  top: 10px;
+  left: 85%;
+  width: 36px;
+  height: 18px;
+  -webkit-transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
-.modal__close:hover {
-  fill: #ff6b08;
+.modal__close-btn:hover, .modal__close-btn:focus {
+  color: #FF6B01;
 }
 
 @media screen and (min-width: 768px) {
-  .modal__close {
-    left: 96%;
+  .modal__close-btn {
+    left: 94%;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .modal__close {
-    position: absolute;
-    left: 96%;
-  }
+.modal__close {
+  fill: currentColor;
 }
 
 .modal__img {
@@ -851,6 +850,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 80px;
 }
 
 .tui-page-btn {
@@ -965,7 +965,7 @@ button {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1256,32 +1256,31 @@ footer {
   }
 }
 
-.modal__close {
+.modal__close-btn {
   position: absolute;
-  top: 10px;
-  left: 90%;
-  width: 14px;
-  height: 14px;
+  border: none;
   cursor: pointer;
-  -webkit-transition: fill 0.5s ease-in-out;
-  transition: fill 0.5s ease-in-out;
+  background-color: inherit;
+  top: 10px;
+  left: 85%;
+  width: 36px;
+  height: 18px;
+  -webkit-transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
-.modal__close:hover {
-  fill: #ff6b08;
+.modal__close-btn:hover, .modal__close-btn:focus {
+  color: #FF6B01;
 }
 
 @media screen and (min-width: 768px) {
-  .modal__close {
-    left: 96%;
+  .modal__close-btn {
+    left: 94%;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .modal__close {
-    position: absolute;
-    left: 96%;
-  }
+.modal__close {
+  fill: currentColor;
 }
 
 .modal__img {
